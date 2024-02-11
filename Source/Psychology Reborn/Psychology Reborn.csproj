@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GUI\ITab_Pawn_Psyche.cs" />
+    <Compile Include="Personality\PersonalityNode.cs" />
+    <Compile Include="Personality\PersonalityNodeDef.cs" />
     <Compile Include="Psychology_Reborn.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -50,5 +52,6 @@
       <Version>1.4.3901</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

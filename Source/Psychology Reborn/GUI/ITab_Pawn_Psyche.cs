@@ -31,7 +31,14 @@ namespace Psychology_Reborn
         {
             get {
                 //Log.Message("IS VISIBLE");
-                return true;
+                if (base.SelPawn != null)
+                {
+                    if (base.SelPawn.def.defName == "Human")
+                    {
+                        return true;
+                    }
+                }
+                return false;
             }
         }
 
