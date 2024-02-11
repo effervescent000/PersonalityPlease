@@ -16,8 +16,9 @@ namespace Psychology_Reborn
 
         public PersonalityNode() { }
 
-        public PersonalityNode(Pawn pawn, PersonalityNodeDef def) { 
-        
+        public PersonalityNode(Pawn pawn, PersonalityNodeDef def)
+        {
+
             this.pawn = pawn;
             this.def = def;
         }

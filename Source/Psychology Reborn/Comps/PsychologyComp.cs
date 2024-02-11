@@ -10,7 +10,7 @@ namespace Psychology_Reborn
     public class PsychologyComp : ThingComp
     {
         private PsycheTracker psyche;
-        
+
 
         public PsycheTracker Psyche
         {
@@ -21,9 +21,10 @@ namespace Psychology_Reborn
                     Pawn pawn = this.parent as Pawn;
                     if (pawn != null)
                     {
-                       this.psyche = new PsycheTracker(pawn);
+                        this.psyche = new PsycheTracker(pawn);
                         this.psyche.Initialize();
-                    } else
+                    }
+                    else
                     {
                         Log.Message("help i dont understand");
                     }

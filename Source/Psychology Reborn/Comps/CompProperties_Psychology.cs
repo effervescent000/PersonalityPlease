@@ -9,7 +9,8 @@ namespace Psychology_Reborn
 {
     public class CompProperties_Psychology : CompProperties
     {
-        public CompProperties_Psychology() {
+        public CompProperties_Psychology()
+        {
 
             this.compClass = typeof(PsychologyComp);
         }

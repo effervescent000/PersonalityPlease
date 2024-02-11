@@ -28,15 +28,17 @@ namespace Psychology_Reborn
             Rect rect = new Rect(0f, 0f, 1f, 1f);
             GUI.BeginGroup(rect);
             GUI.EndGroup();
-            
+
         }
 
         public override bool IsVisible
         {
-            get {
+            get
+            {
                 if (base.SelPawn != null)
                 {
-                    if (this.psyche == null) {
+                    if (this.psyche == null)
+                    {
                         this.psyche = new PsycheTracker(base.SelPawn);
                         this.psyche.Initialize();
                     }
