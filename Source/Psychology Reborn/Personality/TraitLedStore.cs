@@ -10,8 +10,6 @@ namespace Personality
 {
     public class TraitLedStore
     {
-        // stores the modifier value to each personality parameter. eg <Assertiveness, -0.5>
-        public Dictionary<string, float> personalityMod = new Dictionary<string, float>();
 
         public Dictionary<Pair<string, int>, Dictionary<string, float>> traitLedStore = new Dictionary<Pair<string, int>, Dictionary<string, float>>();
 
@@ -19,11 +17,6 @@ namespace Personality
         public TraitLedStore()
         {
 
-        }
-
-        public void AppendModifier(PersonalityNodeTraitModifier mod)
-        {
-            personalityMod.Add(mod.nodeDef.defName, mod.modifier);
         }
 
         public void AppendValue(string personalityNodeName, PersonalityNodeTraitModifier traitMod)
