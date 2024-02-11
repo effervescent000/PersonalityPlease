@@ -6,9 +6,12 @@
       <li>Psychology_Reborn.ITab_Pawn_Psyche</li>
     </value>
   </Operation>
-  <!-- <Operation>
-    <xpath>
-
-    </xpath>
-  </Operation> -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[thingClass="Pawn"]/comps</xpath>
+    <value>
+      <li>
+        <compClass>Psychology_Reborn.PsychologyComp</compClass>
+      </li>
+    </value>
+  </Operation>
 </Patch>

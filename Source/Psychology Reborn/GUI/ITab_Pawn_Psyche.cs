@@ -12,11 +12,15 @@ namespace Psychology_Reborn
 {
     public class ITab_Pawn_Psyche : ITab
     {
+
+        private PsycheTracker psyche;
+
         public ITab_Pawn_Psyche()
         {
             size = new Vector2(200f, 200f);
             labelKey = "TabPsyche";
             tutorTag = "Psyche";
+
         }
 
         protected override void FillTab()
@@ -30,9 +34,12 @@ namespace Psychology_Reborn
         public override bool IsVisible
         {
             get {
-                //Log.Message("IS VISIBLE");
                 if (base.SelPawn != null)
                 {
+                    if (this.psyche == null) {
+                        this.psyche = new PsycheTracker(base.SelPawn);
+                        this.psyche.Initialize();
+                    }
                     if (base.SelPawn.def.defName == "Human")
                     {
                         return true;

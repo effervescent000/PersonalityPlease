@@ -21,5 +21,7 @@ namespace Psychology_Reborn
             this.pawn = pawn;
             this.def = def;
         }
+        public override string ToString() => this.def.defName;
     }
+
 }

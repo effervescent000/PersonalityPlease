@@ -41,6 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Comps\CompProperties_Psychology.cs" />
+    <Compile Include="Comps\PsycheTracker.cs" />
+    <Compile Include="Comps\PsychologyComp.cs" />
     <Compile Include="GUI\ITab_Pawn_Psyche.cs" />
     <Compile Include="Personality\PersonalityNode.cs" />
     <Compile Include="Personality\PersonalityNodeDef.cs" />
