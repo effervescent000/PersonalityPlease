@@ -48,7 +48,9 @@
     <Compile Include="Helpers\PersonalityHelper.cs" />
     <Compile Include="Personality\PersonalityNode.cs" />
     <Compile Include="Personality\PersonalityNodeDef.cs" />
-    <Compile Include="Psychology_Reborn.cs" />
+    <Compile Include="Personality\PersonalityNodeTraitModifier.cs" />
+    <Compile Include="Personality\TraitLedStore.cs" />
+    <Compile Include="Personality_Please.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

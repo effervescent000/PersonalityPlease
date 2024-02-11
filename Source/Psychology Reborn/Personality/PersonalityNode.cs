@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,8 +16,6 @@ namespace Personality
         private float baseRating;
         private float cachedRating = 0f;
 
-
-        public PersonalityNode() { }
 
         public PersonalityNode(Pawn pawn, PersonalityNodeDef def)
         {
@@ -37,6 +36,17 @@ namespace Personality
         {
             Scribe_Defs.Look(ref this.def, "def");
             Scribe_Values.Look(ref this.baseRating, "baseRating");
+        }
+
+        public void ModifyRating()
+        {
+            cachedRating = baseRating;
+
+            foreach (Trait trait in this.pawn.story.traits.allTraits)
+            {
+
+            }
+
         }
     }
 

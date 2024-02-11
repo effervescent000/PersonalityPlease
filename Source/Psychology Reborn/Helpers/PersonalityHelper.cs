@@ -1,14 +1,37 @@
-﻿using System;
+﻿
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Verse;
 
 namespace Personality
 {
+    [StaticConstructorOnStartup]
     public static class PersonalityHelper
     {
+
+
+        public static TraitLedStore traitLedStore = new TraitLedStore();
+
+        private static List<PersonalityNodeDef> PersonalityNodeDefList => DefDatabase<PersonalityNodeDef>.AllDefsListForReading;
+        //private static List<TraitDef> TraitDefList => DefDatabase<TraitDef>.AllDefsListForReading;
+
+
+        static PersonalityHelper()
+        {
+
+            foreach (var nodeDef in PersonalityNodeDefList)
+            {
+                if (nodeDef.traitModifiers.NullOrEmpty())
+                {
+                    continue;
+                }
+                foreach (var traitMod in nodeDef.traitModifiers)
+                {
+                    traitLedStore.AppendValue(nodeDef.defName, traitMod);
+                }
+            }
+            Log.Message(traitLedStore.ToString());
+
+        }
 
         public static int PawnSeed(Pawn pawn)
         {

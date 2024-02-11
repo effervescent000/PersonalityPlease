@@ -5,9 +5,21 @@
   </Personality.PersonalityNodeDef>
   <Personality.PersonalityNodeDef>
     <defName>Assertiveness</defName>
+    <traitModifiers>
+      <!-- <li>
+        <trait>Brave</trait>
+        <modifier>0.3</modifier>
+      </li> -->
+    </traitModifiers>
   </Personality.PersonalityNodeDef>
   <Personality.PersonalityNodeDef>
     <defName>Compassion</defName>
+    <traitModifiers>
+      <li>
+        <trait>Psychopath</trait>
+        <modifier>-2</modifier>
+      </li>
+    </traitModifiers>
   </Personality.PersonalityNodeDef>
   <Personality.PersonalityNodeDef>
     <defName>Ambition</defName>

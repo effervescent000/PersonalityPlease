@@ -8,9 +8,9 @@ using Verse;
 namespace Personality
 {
     [StaticConstructorOnStartup]
-    public static class Psychology_Reborn
+    public static class Personality_Please
     {
-        static Psychology_Reborn()
+        static Personality_Please()
         {
             Log.Message("HELLO WORLD");
         }
