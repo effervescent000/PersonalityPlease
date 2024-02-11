@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Verse;
 
-namespace Psychology_Reborn
+namespace Personality
 {
     public class PsychologyComp : ThingComp
     {

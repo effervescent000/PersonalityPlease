@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Verse;
 
-namespace Psychology_Reborn
+namespace Personality
 {
     public class PsycheTracker
     {
@@ -27,8 +27,12 @@ namespace Psychology_Reborn
                 this.nodes.Add(new PersonalityNode(this.pawn, def));
             }
             Log.Message("PERSONALITY NODES");
+            int seed = PersonalityHelper.PawnSeed(this.pawn);
+            Random random = new Random(seed);
             foreach (PersonalityNode node in this.nodes)
             {
+                float r = random.Next(-100, 100);
+                node.BaseRating = r / 100f;
                 Log.Message(node.ToString());
             }
         }

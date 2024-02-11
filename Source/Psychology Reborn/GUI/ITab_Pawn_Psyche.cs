@@ -8,7 +8,7 @@ using RimWorld;
 using UnityEngine;
 using Verse;
 
-namespace Psychology_Reborn
+namespace Personality
 {
     public class ITab_Pawn_Psyche : ITab
     {

@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Defs>
-  <Psychology_Reborn.PersonalityNodeDef>
+  <Personality.PersonalityNodeDef>
     <defName>Rationality</defName>
-  </Psychology_Reborn.PersonalityNodeDef>
-  <Psychology_Reborn.PersonalityNodeDef>
+  </Personality.PersonalityNodeDef>
+  <Personality.PersonalityNodeDef>
     <defName>Assertiveness</defName>
-  </Psychology_Reborn.PersonalityNodeDef>
-  <Psychology_Reborn.PersonalityNodeDef>
+  </Personality.PersonalityNodeDef>
+  <Personality.PersonalityNodeDef>
     <defName>Compassion</defName>
-  </Psychology_Reborn.PersonalityNodeDef>
+  </Personality.PersonalityNodeDef>
+  <Personality.PersonalityNodeDef>
+    <defName>Ambition</defName>
+  </Personality.PersonalityNodeDef>
 </Defs>

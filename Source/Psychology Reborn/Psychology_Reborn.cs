@@ -5,7 +5,7 @@
 //using System.Threading.Tasks;
 using Verse;
 
-namespace Psychology_Reborn
+namespace Personality
 {
     [StaticConstructorOnStartup]
     public static class Psychology_Reborn
