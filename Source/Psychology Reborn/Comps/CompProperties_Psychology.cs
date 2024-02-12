@@ -12,7 +12,7 @@ namespace Personality
         public CompProperties_Psychology()
         {
 
-            this.compClass = typeof(PsychologyComp);
+            compClass = typeof(PsychologyComp);
         }
     }
 }

@@ -49,6 +49,7 @@
     <Compile Include="Comps\PsychologyComp.cs" />
     <Compile Include="GUI\ITab_Pawn_Psyche.cs" />
     <Compile Include="GUI\UIComponents.cs" />
+    <Compile Include="Harmony\PawnGeneration.cs" />
     <Compile Include="Helpers\PersonalityHelper.cs" />
     <Compile Include="Personality\PersonalityNode.cs" />
     <Compile Include="Personality\PersonalityNodeDef.cs" />
@@ -60,6 +61,9 @@
   <ItemGroup>
     <PackageReference Include="Krafs.Rimworld.Ref">
       <Version>1.4.3901</Version>
+    </PackageReference>
+    <PackageReference Include="Lib.Harmony">
+      <Version>2.2.2</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup />

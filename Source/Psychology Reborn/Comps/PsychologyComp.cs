@@ -16,28 +16,28 @@ namespace Personality
         {
             get
             {
-                if (this.psyche == null)
+                if (psyche == null)
                 {
-                    Pawn pawn = this.parent as Pawn;
+                    Pawn pawn = parent as Pawn;
                     if (pawn != null)
                     {
-                        this.psyche = new PsycheTracker(pawn);
-                        this.psyche.Initialize();
+                        psyche = new PsycheTracker(pawn);
+                        psyche.Initialize();
                     }
                     else
                     {
                         Log.Message("help i dont understand");
                     }
                 }
-                return this.psyche;
+                return psyche;
             }
-            set => this.psyche = value;
+            set => psyche = value;
         }
 
         public override void PostExposeData()
         {
             base.PostExposeData();
-            Scribe_Deep.Look(ref this.psyche, "psyche", new object[] { this.parent as Pawn });
+            Scribe_Deep.Look(ref psyche, "psyche", new object[] { parent as Pawn });
         }
     }
 }
