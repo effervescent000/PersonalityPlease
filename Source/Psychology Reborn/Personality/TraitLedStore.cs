@@ -23,12 +23,10 @@ namespace Personality
                 traitLedStore[traitValues].Add(personalityNodeName, traitMod.modifier);
 
             }
-            Log.Message($"Adding {traitValues} to the store with values {personalityNodeName}, {traitMod.modifier}");
         }
 
         public Dictionary<string, float>? GetValue(Pair<string, int> trait)
         {
-            Log.Message("checking traitPair value: " + trait.ToString());
             if (traitLedStore.TryGetValue(trait, out var value))
             {
                 if (value == null)

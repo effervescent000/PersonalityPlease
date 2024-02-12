@@ -7,12 +7,10 @@ using Verse;
 
 namespace Personality
 {
-    [StaticConstructorOnStartup]
     public static class Personality_Please
     {
         static Personality_Please()
         {
-            Log.Message("HELLO WORLD");
         }
     }
 }
