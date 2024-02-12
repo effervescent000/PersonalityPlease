@@ -22,14 +22,14 @@ namespace Personality
             {
                 nodes.Add(def.defName, new PersonalityNode(pawn, def));
             }
-            Log.Message("PERSONALITY NODES");
             int seed = PersonalityHelper.PawnSeed(this.pawn);
             Random random = new Random(seed);
             foreach (PersonalityNode node in this.nodes.Values)
             {
                 float r = random.Next(-100, 100);
                 node.BaseRating = r / 100f;
-                Log.Message(node.ToString());
+                node.ModifyRating();
+                //Log.Message(node.ToString());
             }
         }
     }

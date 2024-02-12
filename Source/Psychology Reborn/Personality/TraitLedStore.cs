@@ -11,10 +11,7 @@ namespace Personality
         public Dictionary<Pair<string, int>, Dictionary<string, float>> traitLedStore = new Dictionary<Pair<string, int>, Dictionary<string, float>>();
 
 
-        public TraitLedStore()
-        {
-
-        }
+        public TraitLedStore() { }
 
         public void AppendValue(string personalityNodeName, PersonalityNodeTraitModifier traitMod)
         {

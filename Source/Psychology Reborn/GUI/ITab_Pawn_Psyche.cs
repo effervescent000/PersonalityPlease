@@ -45,9 +45,8 @@ namespace Personality
                     float textHeight = Text.CalcHeight(label, 200f);
                     Rect innerRect = new Rect(0f, (rectFromStandard.y + textHeight) * i, 200f, textHeight);
                     Widgets.Label(innerRect, label);
-                    Rect lineRect = new Rect(innerRect.xMax, (rectFromStandard.y + textHeight) * i, 100f, 0f);
+                    Rect lineRect = new Rect(innerRect.xMax, (rectFromStandard.y + textHeight) * i, 100f, textHeight);
                     LineWithIndicator.DrawLineWithIndicator(lineRect, value: node.BaseRating);
-
 
                     i++;
                 }

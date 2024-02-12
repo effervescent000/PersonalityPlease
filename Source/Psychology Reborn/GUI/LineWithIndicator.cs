@@ -17,10 +17,10 @@ namespace Personality
             //Widgets.BeginGroup(rect);
 
 
-            Rect line = new Rect(rect.x, rect.y, rect.width, height);
+            Rect line = new Rect(rect.x, rect.y + (rect.yMax - rect.yMin) / 2f, rect.width, height);
             Widgets.DrawBox(line, thickness: height);
             float normalizedValue = Mathf.Clamp01((value + 1) / 2);
-            Widgets.DrawLineVertical(line.x + (normalizedValue * line.width), line.y, height * 2.5f);
+            Widgets.DrawLineVertical(line.x + (normalizedValue * line.width), line.y - height, height * 2.5f);
 
             //Widgets.EndGroup();
         }
