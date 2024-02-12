@@ -7,13 +7,10 @@ namespace Personality
     [StaticConstructorOnStartup]
     public static class PersonalityHelper
     {
-
-
         public static TraitLedStore traitLedStore = new();
 
         private static List<PersonalityNodeDef> PersonalityNodeDefList => DefDatabase<PersonalityNodeDef>.AllDefsListForReading;
         //private static List<TraitDef> TraitDefList => DefDatabase<TraitDef>.AllDefsListForReading;
-
 
         static PersonalityHelper()
         {

@@ -1,6 +1,7 @@
 ﻿#nullable enable
 using RimWorld;
 using System.Collections.Generic;
+using UnityEngine;
 using Verse;
 
 namespace Personality
@@ -26,19 +27,19 @@ namespace Personality
 
         public float BaseRating { get => baseRating; set => baseRating = value; }
 
-        public override string ToString() => $"{this.def.defName} @ {this.baseRating}";
+        public override string ToString() => $"{def.defName} @ {baseRating}";
 
         public void ExposeData()
         {
-            Scribe_Defs.Look(ref this.def, "def");
-            Scribe_Values.Look(ref this.baseRating, "baseRating");
+            Scribe_Defs.Look(ref def, "def");
+            Scribe_Values.Look(ref baseRating, "baseRating");
         }
 
         public void ModifyRating()
         {
             cachedRating = baseRating;
 
-            foreach (Trait trait in this.pawn.story.traits.allTraits)
+            foreach (Trait trait in pawn.story.traits.allTraits)
             {
                 Pair<string, int> traitPair = new(trait.def.defName, trait.Degree);
                 Dictionary<string, float>? result = PersonalityHelper.traitLedStore.GetValue(traitPair);
@@ -52,6 +53,7 @@ namespace Personality
                 }
 
             }
+            cachedRating = Mathf.Clamp(cachedRating, -1f, 1f);
 
         }
     }

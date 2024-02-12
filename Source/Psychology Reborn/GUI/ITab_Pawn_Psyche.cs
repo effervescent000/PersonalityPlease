@@ -15,7 +15,6 @@ namespace Personality
             size = new Vector2(400f, 400f);
             labelKey = "TabPsyche";
             tutorTag = "Psyche";
-
         }
 
         protected override void FillTab()
@@ -42,7 +41,7 @@ namespace Personality
                 {
 
                     string label = $"{node.def.defName} @ {node.AdjustedRating} (base {node.BaseRating})";
-                    float textHeight = Text.CalcHeight(label, 200f);
+                    float textHeight = Text.CalcHeight(label, 250f);
                     Rect innerRect = new(0f, (rectFromStandard.y + textHeight) * i, 250f, textHeight);
                     Widgets.Label(innerRect, label);
                     Rect lineRect = new(innerRect.xMax, (rectFromStandard.y + textHeight) * i, 100f, textHeight);

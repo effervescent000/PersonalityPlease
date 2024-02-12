@@ -6,8 +6,7 @@ namespace Personality
 {
     public class PsycheTracker
     {
-        private Pawn pawn;
-        //private HashSet<PersonalityNode> nodes;
+        private readonly Pawn pawn;
         public Dictionary<string, PersonalityNode> nodes;
 
         public PsycheTracker(Pawn pawn)
@@ -23,13 +22,12 @@ namespace Personality
                 nodes.Add(def.defName, new PersonalityNode(pawn, def));
             }
             int seed = PersonalityHelper.PawnSeed(this.pawn);
-            Random random = new Random(seed);
+            Random random = new(seed);
             foreach (PersonalityNode node in this.nodes.Values)
             {
                 float r = random.Next(-100, 100);
                 node.BaseRating = r / 100f;
                 node.ModifyRating();
-                //Log.Message(node.ToString());
             }
         }
     }
