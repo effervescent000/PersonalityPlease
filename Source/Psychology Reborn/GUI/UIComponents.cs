@@ -8,11 +8,11 @@ using Verse;
 
 namespace Personality
 {
-    public static class LineWithIndicator
+    public static class UIComponents
     {
 
 
-        public static void DrawLineWithIndicator(Rect rect, float value, int height = 3)
+        public static void LineWithIndicator(Rect rect, float value, int height = 3)
         {
             //Widgets.BeginGroup(rect);
 
