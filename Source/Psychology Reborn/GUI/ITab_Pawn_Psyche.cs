@@ -1,10 +1,5 @@
-﻿using System;
+﻿using RimWorld;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using RimWorld;
 using UnityEngine;
 using Verse;
 
@@ -13,11 +8,11 @@ namespace Personality
     public class ITab_Pawn_Psyche : ITab
     {
 
-        private PsycheTracker psyche;
+        private static readonly Listing_Standard listingStandard = new Listing_Standard();
 
         public ITab_Pawn_Psyche()
         {
-            size = new Vector2(200f, 200f);
+            size = new Vector2(400f, 400f);
             labelKey = "TabPsyche";
             tutorTag = "Psyche";
 
@@ -25,9 +20,47 @@ namespace Personality
 
         protected override void FillTab()
         {
-            Rect rect = new Rect(0f, 0f, 1f, 1f);
-            GUI.BeginGroup(rect);
-            GUI.EndGroup();
+
+            Pawn pawn = PawnToDisplay;
+            PsychologyComp psyche = pawn.GetComp<PsychologyComp>();
+
+            Rect rect = new Rect(0f, 0f, size.x, size.y).ContractedBy(1f);
+            Text.Font = GameFont.Small;
+            GUI.color = Color.white;
+            listingStandard.ColumnWidth = size.x - 20;
+            listingStandard.Begin(rect);
+
+
+            if (psyche != null)
+            {
+                Rect rectFromStandard = listingStandard.GetRect(20f, listingStandard.ColumnWidth);
+
+                Dictionary<string, PersonalityNode> nodes = psyche.Psyche.nodes;
+
+                int i = 0;
+                foreach (PersonalityNode node in nodes.Values)
+                {
+
+                    string label = $"{node.def.defName} @ {node.AdjustedRating} (base {node.BaseRating})";
+                    float textHeight = Text.CalcHeight(label, 200f);
+                    Rect innerRect = new Rect(0f, (rectFromStandard.y + textHeight) * i, 200f, textHeight);
+                    //GUI.BeginGroup(innerRect);
+
+                    //listingStandard.Label(label);
+                    Widgets.Label(innerRect, label);
+
+                    //GUI.EndGroup();
+
+                    i++;
+
+
+                }
+
+            }
+
+
+            listingStandard.End();
+
 
         }
 
@@ -35,19 +68,37 @@ namespace Personality
         {
             get
             {
-                if (base.SelPawn != null)
+                Pawn pawn = PawnToDisplay;
+                if (pawn != null)
                 {
-                    if (this.psyche == null)
+                    PsychologyComp psyche = pawn.GetComp<PsychologyComp>();
+                    if (psyche == null)
                     {
-                        this.psyche = new PsycheTracker(base.SelPawn);
-                        this.psyche.Initialize();
+                        PsycheTracker tracker = new PsycheTracker(pawn);
+                        tracker.Initialize();
                     }
-                    if (base.SelPawn.def.defName == "Human")
+                    if (pawn.def.defName == "Human")
                     {
                         return true;
                     }
                 }
                 return false;
+            }
+        }
+
+        private Pawn PawnToDisplay
+        {
+            get
+            {
+                if (SelPawn != null)
+                {
+                    return SelPawn;
+                }
+                if (SelThing is Corpse corpse)
+                {
+                    return corpse.InnerPawn;
+                }
+                return null;
             }
         }
 

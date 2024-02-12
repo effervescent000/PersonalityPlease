@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Verse;
 
 namespace Personality
@@ -10,9 +7,8 @@ namespace Personality
     public class PsycheTracker
     {
         private Pawn pawn;
-        private HashSet<PersonalityNode> nodes;
-
-        public HashSet<PersonalityNode> Nodes => nodes;
+        //private HashSet<PersonalityNode> nodes;
+        public Dictionary<string, PersonalityNode> nodes;
 
         public PsycheTracker(Pawn pawn)
         {
@@ -21,15 +17,15 @@ namespace Personality
 
         public void Initialize()
         {
-            this.nodes = new HashSet<PersonalityNode>();
+            nodes = new Dictionary<string, PersonalityNode>();
             foreach (PersonalityNodeDef def in DefDatabase<PersonalityNodeDef>.AllDefsListForReading)
             {
-                this.nodes.Add(new PersonalityNode(this.pawn, def));
+                nodes.Add(def.defName, new PersonalityNode(pawn, def));
             }
             Log.Message("PERSONALITY NODES");
             int seed = PersonalityHelper.PawnSeed(this.pawn);
             Random random = new Random(seed);
-            foreach (PersonalityNode node in this.nodes)
+            foreach (PersonalityNode node in this.nodes.Values)
             {
                 float r = random.Next(-100, 100);
                 node.BaseRating = r / 100f;
