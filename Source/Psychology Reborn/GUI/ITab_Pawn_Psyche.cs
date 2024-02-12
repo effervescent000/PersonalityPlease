@@ -44,23 +44,17 @@ namespace Personality
                     string label = $"{node.def.defName} @ {node.AdjustedRating} (base {node.BaseRating})";
                     float textHeight = Text.CalcHeight(label, 200f);
                     Rect innerRect = new Rect(0f, (rectFromStandard.y + textHeight) * i, 200f, textHeight);
-                    //GUI.BeginGroup(innerRect);
-
-                    //listingStandard.Label(label);
                     Widgets.Label(innerRect, label);
+                    Rect lineRect = new Rect(innerRect.xMax, (rectFromStandard.y + textHeight) * i, 100f, 0f);
+                    LineWithIndicator.DrawLineWithIndicator(lineRect, value: node.BaseRating);
 
-                    //GUI.EndGroup();
 
                     i++;
-
-
                 }
 
             }
 
-
             listingStandard.End();
-
 
         }
 

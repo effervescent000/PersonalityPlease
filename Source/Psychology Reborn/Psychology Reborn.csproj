@@ -45,6 +45,7 @@
     <Compile Include="Comps\PsycheTracker.cs" />
     <Compile Include="Comps\PsychologyComp.cs" />
     <Compile Include="GUI\ITab_Pawn_Psyche.cs" />
+    <Compile Include="GUI\LineWithIndicator.cs" />
     <Compile Include="Helpers\PersonalityHelper.cs" />
     <Compile Include="Personality\PersonalityNode.cs" />
     <Compile Include="Personality\PersonalityNodeDef.cs" />
