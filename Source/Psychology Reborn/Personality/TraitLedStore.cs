@@ -28,14 +28,14 @@ namespace Personality
 
         public Dictionary<string, float>? GetValue(Pair<string, int> trait)
         {
-            if (traitLedStore.ContainsKey(trait))
+            Log.Message("checking traitPair value: " + trait.ToString());
+            if (traitLedStore.TryGetValue(trait, out var value))
             {
-                Dictionary<string, float>? result = traitLedStore.TryGetValue(trait);
-                if (result == null)
+                if (value == null)
                 {
                     throw new Exception("Trait found in traitLedStore with no modifiers attached");
                 }
-                return result;
+                return value;
             }
             return null;
 

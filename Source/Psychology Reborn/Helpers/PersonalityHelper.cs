@@ -17,8 +17,6 @@ namespace Personality
 
         static PersonalityHelper()
         {
-            Log.Message("in personality helper static ctor");
-
             foreach (var nodeDef in PersonalityNodeDefList)
             {
                 if (nodeDef.traitModifiers.NullOrEmpty())

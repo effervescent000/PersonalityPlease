@@ -10,6 +10,10 @@
         <trait>Brave</trait>
         <modifier>0.3</modifier>
       </li> -->
+      <li>
+        <trait>Wimp</trait>
+        <modifier>-0.25</modifier>
+      </li>
     </traitModifiers>
   </Personality.PersonalityNodeDef>
   <Personality.PersonalityNodeDef>
@@ -19,9 +23,23 @@
         <trait>Psychopath</trait>
         <modifier>-2</modifier>
       </li>
+      <li>
+        <trait>Kind</trait>
+        <modifier>1.5</modifier>
+      </li>
     </traitModifiers>
   </Personality.PersonalityNodeDef>
   <Personality.PersonalityNodeDef>
     <defName>Ambition</defName>
+  </Personality.PersonalityNodeDef>
+  <Personality.PersonalityNodeDef>
+    <defName>Meticulousness</defName>
+    <traitModifiers>
+      <li>
+        <trait>Industriousness</trait>
+        <degree>-1</degree>
+        <modifier>-1</modifier>
+      </li>
+    </traitModifiers>
   </Personality.PersonalityNodeDef>
 </Defs>

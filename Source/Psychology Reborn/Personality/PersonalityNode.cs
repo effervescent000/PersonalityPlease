@@ -42,9 +42,13 @@ namespace Personality
             {
                 Pair<string, int> traitPair = new(trait.def.defName, trait.Degree);
                 Dictionary<string, float>? result = PersonalityHelper.traitLedStore.GetValue(traitPair);
-                if (result != null)
+                if (result is not null)
                 {
-                    cachedRating += result[def.defName];
+
+                    if (result.TryGetValue(def.defName, out float value))
+                    {
+                        cachedRating += value;
+                    }
                 }
 
             }
