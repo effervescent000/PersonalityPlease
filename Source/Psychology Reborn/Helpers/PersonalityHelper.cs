@@ -9,7 +9,7 @@ namespace Personality
     {
 
 
-        public static TraitLedStore traitLedStore = new TraitLedStore();
+        public static TraitLedStore traitLedStore = new();
 
         private static List<PersonalityNodeDef> PersonalityNodeDefList => DefDatabase<PersonalityNodeDef>.AllDefsListForReading;
         //private static List<TraitDef> TraitDefList => DefDatabase<TraitDef>.AllDefsListForReading;
@@ -17,6 +17,7 @@ namespace Personality
 
         static PersonalityHelper()
         {
+            Log.Message("in personality helper static ctor");
 
             foreach (var nodeDef in PersonalityNodeDefList)
             {
@@ -29,7 +30,6 @@ namespace Personality
                     traitLedStore.AppendValue(nodeDef.defName, traitMod);
                 }
             }
-            Log.Message(traitLedStore.ToString());
 
         }
 

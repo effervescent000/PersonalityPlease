@@ -1,4 +1,6 @@
-﻿using RimWorld;
+﻿#nullable enable
+using RimWorld;
+using System.Collections.Generic;
 using Verse;
 
 namespace Personality
@@ -38,6 +40,12 @@ namespace Personality
 
             foreach (Trait trait in this.pawn.story.traits.allTraits)
             {
+                Pair<string, int> traitPair = new(trait.def.defName, trait.Degree);
+                Dictionary<string, float>? result = PersonalityHelper.traitLedStore.GetValue(traitPair);
+                if (result != null)
+                {
+                    cachedRating += result[def.defName];
+                }
 
             }
 

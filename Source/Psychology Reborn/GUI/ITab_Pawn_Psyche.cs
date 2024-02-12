@@ -8,7 +8,7 @@ namespace Personality
     public class ITab_Pawn_Psyche : ITab
     {
 
-        private static readonly Listing_Standard listingStandard = new Listing_Standard();
+        private static readonly Listing_Standard listingStandard = new();
 
         public ITab_Pawn_Psyche()
         {
@@ -43,9 +43,9 @@ namespace Personality
 
                     string label = $"{node.def.defName} @ {node.AdjustedRating} (base {node.BaseRating})";
                     float textHeight = Text.CalcHeight(label, 200f);
-                    Rect innerRect = new Rect(0f, (rectFromStandard.y + textHeight) * i, 200f, textHeight);
+                    Rect innerRect = new(0f, (rectFromStandard.y + textHeight) * i, 250f, textHeight);
                     Widgets.Label(innerRect, label);
-                    Rect lineRect = new Rect(innerRect.xMax, (rectFromStandard.y + textHeight) * i, 100f, textHeight);
+                    Rect lineRect = new(innerRect.xMax, (rectFromStandard.y + textHeight) * i, 100f, textHeight);
                     LineWithIndicator.DrawLineWithIndicator(lineRect, value: node.BaseRating);
 
                     i++;
@@ -67,7 +67,7 @@ namespace Personality
                     PsychologyComp psyche = pawn.GetComp<PsychologyComp>();
                     if (psyche == null)
                     {
-                        PsycheTracker tracker = new PsycheTracker(pawn);
+                        PsycheTracker tracker = new(pawn);
                         tracker.Initialize();
                     }
                     if (pawn.def.defName == "Human")
