@@ -1,5 +1,4 @@
 ﻿
-using Personality.Helpers;
 using System.Collections.Generic;
 using Verse;
 
@@ -15,7 +14,7 @@ namespace Personality
 
         static PersonalityHelper()
         {
-            foreach (var nodeDef in PersonalityNodeDefList)
+            foreach (PersonalityNodeDef nodeDef in PersonalityNodeDefList)
             {
                 if (!nodeDef.traitModifiers.NullOrEmpty())
                 {
