@@ -28,7 +28,7 @@ namespace Personality
                 float diff = comparison.Difference;
                 if (diff >= .25)
                 {
-                    totalCompatibility -= diff * ( 1f / defs.Count);
+                    totalCompatibility -= diff * (1f / defs.Count);
                 }
             }
             return Mathf.Clamp01(totalCompatibility);
