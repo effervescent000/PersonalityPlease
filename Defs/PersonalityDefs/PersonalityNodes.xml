@@ -67,6 +67,11 @@
         <preceptDef>Execution_Abhorrent</preceptDef>
         <modifier>0.25</modifier>
       </li>
+      <li>
+        <!-- will be removed, just for testing -->
+        <preceptDef>Execution_HorribleIfInnocent</preceptDef>
+        <modifier>-2</modifier>
+      </li>
     </preceptModifiers>
   </Personality.PersonalityNodeDef>
   <Personality.PersonalityNodeDef>

@@ -42,6 +42,14 @@ namespace Personality
             return Gen.HashCombineInt(thingID, worldID);
         }
 
+        public static PsychologyComp Comp(Pawn pawn)
+        {
+            return pawn.GetComp<PsychologyComp>();
+        }
 
+        public static List<PersonalityNodeDef> GetAll
+        {
+            get => DefDatabase<PersonalityNodeDef>.AllDefsListForReading;
+        }
     }
 }

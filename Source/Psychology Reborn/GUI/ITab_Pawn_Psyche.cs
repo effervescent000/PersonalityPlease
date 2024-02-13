@@ -40,13 +40,12 @@ namespace Personality
                 foreach (PersonalityNode node in nodes.Values)
                 {
 
-
                     string label = $"{node.def.defName} @ {node.AdjustedRating} (base {node.BaseRating})";
                     float textHeight = Text.CalcHeight(label, 250f);
                     Rect innerRect = new(0f, (rectFromStandard.y + textHeight) * i, 250f, textHeight);
                     Widgets.Label(innerRect, label);
                     Rect lineRect = new(innerRect.xMax, (rectFromStandard.y + textHeight) * i, 100f, textHeight);
-                    UIComponents.LineWithIndicator(lineRect, value: node.BaseRating);
+                    UIComponents.LineWithIndicator(lineRect, value: node.AdjustedRating);
 
                     i++;
                 }
@@ -64,12 +63,6 @@ namespace Personality
                 Pawn pawn = PawnToDisplay;
                 if (pawn != null)
                 {
-                    //PsychologyComp psyche = pawn.GetComp<PsychologyComp>();
-                    //if (psyche == null)
-                    //{
-                    //    PsycheTracker tracker = new(pawn);
-                    //    tracker.Initialize();
-                    //}
                     if (pawn.def.defName == "Human")
                     {
                         return true;

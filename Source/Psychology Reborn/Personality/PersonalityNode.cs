@@ -11,7 +11,7 @@ namespace Personality
         public Pawn pawn;
         public PersonalityNodeDef def;
         private float baseRating;
-        private float cachedRating = 0f;
+        private float cachedRating = 0.5f;
 
 
         public PersonalityNode(Pawn pawn, PersonalityNodeDef def)
@@ -54,10 +54,22 @@ namespace Personality
 
             }
 
-            Ideo ideo = pawn.ideo.Ideo;
+            Ideo ideo = pawn.Ideo;
+            foreach (Precept precept in ideo.PreceptsListForReading)
+            {
+                Dictionary<string, float>? result = PersonalityHelper.preceptLedStore.GetValue(precept.def.defName);
+                if (result is not null)
+                {
+                    if (result.TryGetValue(def.defName, out float value))
+                    {
+                        Log.Message($"Adjusting personality node {def.defName} based on precept {precept.def.defName}");
+                        cachedRating += value;
+                    }
+                }
 
+            }
 
-            cachedRating = Mathf.Clamp(cachedRating, -1f, 1f);
+            cachedRating = Mathf.Clamp01(cachedRating);
 
         }
     }

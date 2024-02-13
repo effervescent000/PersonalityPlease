@@ -26,7 +26,7 @@ namespace Personality
             Random random = new(seed);
             foreach (PersonalityNode node in nodes.Values)
             {
-                float r = random.Next(-100, 100);
+                float r = random.Next(0, 100);
                 node.BaseRating = r / 100f;
                 node.ModifyRating();
             }

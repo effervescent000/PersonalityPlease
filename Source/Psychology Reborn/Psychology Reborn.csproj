@@ -51,6 +51,8 @@
     <Compile Include="GUI\UIComponents.cs" />
     <Compile Include="Harmony\HarmonyStartup.cs" />
     <Compile Include="Harmony\PawnGenerationPatch.cs" />
+    <Compile Include="Helpers\CompatibilityHelper.cs" />
+    <Compile Include="Helpers\PersonalityComparison.cs" />
     <Compile Include="Helpers\PersonalityHelper.cs" />
     <Compile Include="Helpers\PreceptLedStore.cs" />
     <Compile Include="Personality\PersonalityNode.cs" />
