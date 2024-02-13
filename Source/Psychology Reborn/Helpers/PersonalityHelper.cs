@@ -1,4 +1,5 @@
 ﻿
+using Personality.Helpers;
 using System.Collections.Generic;
 using Verse;
 
@@ -8,22 +9,29 @@ namespace Personality
     public static class PersonalityHelper
     {
         public static TraitLedStore traitLedStore = new();
+        public static PreceptLedStore preceptLedStore = new();
 
         private static List<PersonalityNodeDef> PersonalityNodeDefList => DefDatabase<PersonalityNodeDef>.AllDefsListForReading;
-        //private static List<TraitDef> TraitDefList => DefDatabase<TraitDef>.AllDefsListForReading;
 
         static PersonalityHelper()
         {
             foreach (var nodeDef in PersonalityNodeDefList)
             {
-                if (nodeDef.traitModifiers.NullOrEmpty())
+                if (!nodeDef.traitModifiers.NullOrEmpty())
                 {
-                    continue;
+                    foreach (PersonalityNodeTraitModifier traitMod in nodeDef.traitModifiers)
+                    {
+                        traitLedStore.AppendValue(nodeDef.defName, traitMod);
+                    }
                 }
-                foreach (var traitMod in nodeDef.traitModifiers)
+                if (!nodeDef.preceptModifiers.NullOrEmpty())
                 {
-                    traitLedStore.AppendValue(nodeDef.defName, traitMod);
+                    foreach (PersonalityNodePreceptModifier preceptMod in nodeDef.preceptModifiers)
+                    {
+                        preceptLedStore.AppendValue(nodeDef.defName, preceptMod);
+                    }
                 }
+
             }
 
         }

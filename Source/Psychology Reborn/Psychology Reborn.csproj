@@ -52,8 +52,10 @@
     <Compile Include="Harmony\HarmonyStartup.cs" />
     <Compile Include="Harmony\PawnGenerationPatch.cs" />
     <Compile Include="Helpers\PersonalityHelper.cs" />
+    <Compile Include="Helpers\PreceptLedStore.cs" />
     <Compile Include="Personality\PersonalityNode.cs" />
     <Compile Include="Personality\PersonalityNodeDef.cs" />
+    <Compile Include="Personality\PersonalityNodePreceptModifier.cs" />
     <Compile Include="Personality\PersonalityNodeTraitModifier.cs" />
     <Compile Include="Personality\TraitLedStore.cs" />
     <Compile Include="Personality_Please.cs" />

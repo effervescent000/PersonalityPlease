@@ -62,6 +62,12 @@
         <modifier>-0.25</modifier>
       </li>
     </traitModifiers>
+    <preceptModifiers>
+      <li>
+        <preceptDef>Execution_Abhorrent</preceptDef>
+        <modifier>0.25</modifier>
+      </li>
+    </preceptModifiers>
   </Personality.PersonalityNodeDef>
   <Personality.PersonalityNodeDef>
     <defName>Ambition</defName>

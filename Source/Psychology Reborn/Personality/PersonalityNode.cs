@@ -53,6 +53,10 @@ namespace Personality
                 }
 
             }
+
+            Ideo ideo = pawn.ideo.Ideo;
+
+
             cachedRating = Mathf.Clamp(cachedRating, -1f, 1f);
 
         }
