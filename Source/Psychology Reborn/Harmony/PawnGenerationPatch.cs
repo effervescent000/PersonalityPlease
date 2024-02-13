@@ -15,7 +15,7 @@ namespace Personality.Harmony
             {
                 PsychologyComp psyche = pawn.GetComp<PsychologyComp>();
                 PsycheTracker tracker = new(pawn);
-                tracker.Initialize();
+                tracker.Initialize(pawn);
                 psyche.Psyche = tracker;
             }
 

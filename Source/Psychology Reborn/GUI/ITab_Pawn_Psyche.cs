@@ -1,4 +1,5 @@
-﻿using RimWorld;
+﻿#nullable enable
+using RimWorld;
 using System.Collections.Generic;
 using UnityEngine;
 using Verse;
@@ -20,39 +21,43 @@ namespace Personality
         protected override void FillTab()
         {
 
-            Pawn pawn = PawnToDisplay;
-            PsychologyComp psyche = pawn.GetComp<PsychologyComp>();
-
-            Rect rect = new Rect(0f, 0f, size.x, size.y).ContractedBy(1f);
-            Text.Font = GameFont.Small;
-            GUI.color = Color.white;
-            listingStandard.ColumnWidth = size.x - 20;
-            listingStandard.Begin(rect);
-
-
-            if (psyche != null)
+            Pawn? pawn = PawnToDisplay;
+            if (pawn != null)
             {
-                Rect rectFromStandard = listingStandard.GetRect(20f, listingStandard.ColumnWidth);
+                PsychologyComp psyche = pawn.GetComp<PsychologyComp>();
 
-                Dictionary<string, PersonalityNode> nodes = psyche.Psyche.nodes;
+                Rect rect = new Rect(0f, 0f, size.x, size.y).ContractedBy(1f);
+                Text.Font = GameFont.Small;
+                GUI.color = Color.white;
+                listingStandard.ColumnWidth = size.x - 20;
+                listingStandard.Begin(rect);
 
-                int i = 0;
-                foreach (PersonalityNode node in nodes.Values)
+
+                if (psyche != null)
                 {
+                    Rect rectFromStandard = listingStandard.GetRect(20f, listingStandard.ColumnWidth);
 
-                    string label = $"{node.def.defName} @ {node.AdjustedRating} (base {node.BaseRating})";
-                    float textHeight = Text.CalcHeight(label, 250f);
-                    Rect innerRect = new(0f, (rectFromStandard.y + textHeight) * i, 250f, textHeight);
-                    Widgets.Label(innerRect, label);
-                    Rect lineRect = new(innerRect.xMax, (rectFromStandard.y + textHeight) * i, 100f, textHeight);
-                    UIComponents.LineWithIndicator(lineRect, value: node.AdjustedRating);
+                    Dictionary<string, PersonalityNode> nodes = psyche.Psyche.nodes;
 
-                    i++;
+                    int i = 0;
+                    foreach (PersonalityNode node in nodes.Values)
+                    {
+
+                        string label = $"{node.def.defName} @ {node.AdjustedRating} (base {node.BaseRating})";
+                        float textHeight = Text.CalcHeight(label, 250f);
+                        Rect innerRect = new(0f, (rectFromStandard.y + textHeight) * i, 250f, textHeight);
+                        Widgets.Label(innerRect, label);
+                        Rect lineRect = new(innerRect.xMax, (rectFromStandard.y + textHeight) * i, 100f, textHeight);
+                        UIComponents.LineWithIndicator(lineRect, value: node.AdjustedRating);
+
+                        i++;
+                    }
+
                 }
 
+                listingStandard.End();
             }
 
-            listingStandard.End();
 
         }
 
@@ -60,19 +65,16 @@ namespace Personality
         {
             get
             {
-                Pawn pawn = PawnToDisplay;
-                if (pawn != null)
+                Pawn? pawn = PawnToDisplay;
+                if (pawn != null && pawn.def.defName == "Human")
                 {
-                    if (pawn.def.defName == "Human")
-                    {
-                        return true;
-                    }
+                    return true;
                 }
                 return false;
             }
         }
 
-        private Pawn PawnToDisplay
+        private Pawn? PawnToDisplay
         {
             get
             {
