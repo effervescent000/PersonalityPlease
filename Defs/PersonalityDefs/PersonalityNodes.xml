@@ -40,7 +40,13 @@
     </traitModifiers>
     <statModifiers>
       <li>
-        <statDef>TradePriceImprovement</statDef>
+        <statDef>PlantWorkSpeed</statDef>
+        <isFactor>true</isFactor>
+        <value>1.1</value>
+        <beginsAt>0.2</beginsAt>
+      </li>
+      <li>
+        <statDef>ConstructionSpeed</statDef>
         <isFactor>true</isFactor>
         <value>1.1</value>
         <beginsAt>0.2</beginsAt>

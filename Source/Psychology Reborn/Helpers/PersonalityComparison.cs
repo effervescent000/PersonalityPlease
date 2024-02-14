@@ -21,7 +21,7 @@ namespace Personality
             get
             {
                 float diff = Math.Abs(initValue - reciValue);
-                Log.Message($"initValue: {initValue}, reciValue: {reciValue}, diff: {diff}");
+                //Log.Message($"initValue: {initValue}, reciValue: {reciValue}, diff: {diff}");
                 return diff;
             }
         }

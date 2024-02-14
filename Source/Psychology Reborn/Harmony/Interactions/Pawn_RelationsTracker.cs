@@ -13,9 +13,6 @@ public class Pawn_RelationsTracker_Patch
     [HarmonyPrefix]
     public static bool PatchCompatibility(Pawn otherPawn, ref float __result, Pawn_RelationsTracker __instance)
     {
-        //Log.Message("Attempting to patch compatibility...");
-        Pawn pawnInst = new();
-
         ref Pawn firstPawn = ref firstPawnRef.Invoke(__instance);
         float baseCompatibility = CompatibilityHelper.EvaluateCompatibility(firstPawn, otherPawn);
         //Log.Message($"Compatibility is {baseCompatibility}");

@@ -1,7 +1,6 @@
 ﻿#nullable enable
 using RimWorld;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using Verse;
 
@@ -85,45 +84,10 @@ public class PersonalityNode : IExposable
 
         }
 
-        adjustedRating = Mathf.Clamp01(adjustedRating);
+        adjustedRating = Mathf.Clamp(adjustedRating, -1, 1);
 
     }
 
-    public void AdjustHediff(ref Hediff hediff)
-    {
-        AdjustHediff(pawn, ref hediff);
-    }
-
-    public void AdjustHediff(Pawn pawn, ref Hediff hediff)
-    {
-        if (!def.statModifiers.NullOrEmpty()) {
-
-            foreach (var mod in def.statModifiers)
-            {
-                float value = GetStatModCurrentValue(mod);
-                StatModifier statModifier = new()
-                {
-                    value = value,
-                    stat = mod.StatDef
-                };
-                if (mod.isFactor)
-                {
-                    hediff.def.stages[0].statFactors.Add(statModifier);
-                }
-                else
-                {
-                    hediff.def.stages[0].statOffsets.Add(statModifier);
-                }
-            }
-        }
-        
-
-    }
-
-    private float GetStatModCurrentValue(PersonalityStatModifier statMod)
-    {
-        return statMod.Value / (statMod.MaxValueAt - statMod.BeginsAt) * adjustedRating;
-    }
 
     public void ExposeData()
     {

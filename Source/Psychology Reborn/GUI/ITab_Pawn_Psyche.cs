@@ -48,7 +48,7 @@ namespace Personality
                         Rect innerRect = new(0f, (rectFromStandard.y + textHeight) * i, 250f, textHeight);
                         Widgets.Label(innerRect, label);
                         Rect lineRect = new(innerRect.xMax, (rectFromStandard.y + textHeight) * i, 100f, textHeight);
-                        UIComponents.LineWithIndicator(lineRect, value: node.AdjustedRating);
+                        UIComponents.LineWithIndicator(lineRect, value: (node.AdjustedRating + 1) / 2);
 
                         i++;
                     }

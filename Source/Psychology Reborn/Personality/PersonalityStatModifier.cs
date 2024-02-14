@@ -1,6 +1,7 @@
 ﻿
 using RimWorld;
 using System;
+using Verse;
 
 namespace Personality;
 
@@ -13,11 +14,6 @@ public class PersonalityStatModifier
     private readonly float beginsAt = 0.25f;
     private readonly float? maxValueAt;
 
-    //public PersonalityStatModifier(float offset, float factor, stat)
-    //{
-        
-    //}
-
     public float Value => value;
     public StatDef StatDef => statDef;
     public float BeginsAt => beginsAt;
@@ -29,9 +25,21 @@ public class PersonalityStatModifier
             {
                 return (float)maxValueAt ;
             }
-            if (beginsAt > 0.5f) { return 1f; }
-            if (beginsAt < 0.5f) { return 0f; }
+            if (beginsAt > 0f) { return 1f; }
+            if (beginsAt < 0f) { return -1f; }
             throw new Exception($"Malformed PersonalityStatModifier: stat {statDef.defName}");
         }
+    }
+
+    public float GetValueAt(float targetValue)
+    {
+        SimpleCurve curve = new()
+        {
+            new CurvePoint(MaxValueAt, value),
+            new CurvePoint(BeginsAt, isFactor ? 1f : 0f),
+            new CurvePoint(-MaxValueAt, isFactor ? 1f : 0f)
+        };
+        return curve.Evaluate(targetValue);
+        
     }
 }

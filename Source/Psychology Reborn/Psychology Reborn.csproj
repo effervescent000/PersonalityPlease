@@ -45,6 +45,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Comps\CompProperties_Psychology.cs" />
+    <Compile Include="Comps\ModifierTracker.cs" />
+    <Compile Include="Comps\ModifierValues.cs" />
     <Compile Include="Comps\PsycheTracker.cs" />
     <Compile Include="Comps\PsychologyComp.cs" />
     <Compile Include="DefOf\HediffDefOfPersonality.cs" />

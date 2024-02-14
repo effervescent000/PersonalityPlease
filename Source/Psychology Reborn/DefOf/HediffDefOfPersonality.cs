@@ -1,17 +1,17 @@
-﻿using RimWorld;
-using Verse;
+﻿//using RimWorld;
+//using Verse;
 
-namespace Personality;
+//namespace Personality;
 
-[DefOf]
-public static class HediffDefOfPersonality
-{
+//[DefOf]
+//public static class HediffDefOfPersonality
+//{
     
-    public static HediffDef PP_Personality;
+//    public static HediffDef PP_Personality;
 
-    static HediffDefOfPersonality()
-    {
-        DefOfHelper.EnsureInitializedInCtor(typeof(HediffDefOfPersonality));
-    }
+//    static HediffDefOfPersonality()
+//    {
+//        DefOfHelper.EnsureInitializedInCtor(typeof(HediffDefOfPersonality));
+//    }
 
-}
+//}

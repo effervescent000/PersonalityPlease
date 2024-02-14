@@ -8,7 +8,7 @@ public class PsycheTracker : IExposable
 {
     private readonly Pawn pawn;
     public Dictionary<string, PersonalityNode> nodes;
-    private Hediff hediff;
+    //private Hediff hediff;
 
     public PsycheTracker(Pawn pawn)
     {
@@ -28,9 +28,9 @@ public class PsycheTracker : IExposable
             nodes.Add(def.defName, new PersonalityNode(def, pawn));
         }
 
-        hediff = HediffMaker.MakeHediff(HediffDefOfPersonality.PP_Personality, pawn);
+        //hediff = HediffMaker.MakeHediff(HediffDefOfPersonality.PP_Personality, pawn);
 
-        pawn.health.AddHediff(hediff);
+        //pawn.health.AddHediff(hediff);
 
         int seed = PersonalityHelper.PawnSeed(pawn);
         Random random = new(seed);
@@ -55,7 +55,6 @@ public class PsycheTracker : IExposable
         foreach (PersonalityNode node in nodes.Values)
         {
             node.ModifyRating(pawn);
-            node.AdjustHediff(pawn, ref hediff);
         }
     }
 
