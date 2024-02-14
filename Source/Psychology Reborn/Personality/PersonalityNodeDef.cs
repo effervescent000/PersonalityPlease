@@ -9,5 +9,6 @@ namespace Personality
         public string lowDescription;
         public List<PersonalityNodeTraitModifier> traitModifiers;
         public List<PersonalityNodePreceptModifier> preceptModifiers;
+        public List<PersonalityStatModifier> statModifiers;
     }
 }

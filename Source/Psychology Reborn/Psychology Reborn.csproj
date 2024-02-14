@@ -47,10 +47,12 @@
     <Compile Include="Comps\CompProperties_Psychology.cs" />
     <Compile Include="Comps\PsycheTracker.cs" />
     <Compile Include="Comps\PsychologyComp.cs" />
+    <Compile Include="DefOf\HediffDefOfPersonality.cs" />
     <Compile Include="GUI\ITab_Pawn_Psyche.cs" />
     <Compile Include="GUI\UIComponents.cs" />
     <Compile Include="Harmony\HarmonyStartup.cs" />
     <Compile Include="Harmony\Interactions\Pawn_RelationsTracker.cs" />
+    <Compile Include="Harmony\Stats\StatWorker.cs" />
     <Compile Include="Helpers\CompatibilityHelper.cs" />
     <Compile Include="Helpers\PersonalityComparison.cs" />
     <Compile Include="Helpers\PersonalityHelper.cs" />
@@ -59,7 +61,7 @@
     <Compile Include="Personality\PersonalityNodeDef.cs" />
     <Compile Include="Personality\PersonalityNodePreceptModifier.cs" />
     <Compile Include="Personality\PersonalityNodeTraitModifier.cs" />
-    <Compile Include="Personality\TraitLedStore.cs" />
+    <Compile Include="Personality\PersonalityStatModifier.cs" />
     <Compile Include="Helpers\TraitLedStore.cs" />
     <Compile Include="Personality_Please.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

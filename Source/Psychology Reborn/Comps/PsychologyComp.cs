@@ -27,6 +27,7 @@ public class PsychologyComp : ThingComp
         {
             psyche = new(parent as Pawn);
             psyche.Initialize();
+            psyche.ApplyAdjustments();
         }
         
     }

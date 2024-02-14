@@ -12,6 +12,15 @@
         <modifier>0.05</modifier>
       </li>
     </traitModifiers>
+    <!-- <statModifiers>
+      <li>
+        <statDef>ResearchSpeedFactor</statDef>
+        <isFactor>true</isFactor>
+        <value>1.1</value>
+        <beginsAt>0.6</beginsAt>
+        <maxValueAt>1</maxValueAt>
+      </li> -->
+    <!-- </statModifiers> -->
   </Personality.PersonalityNodeDef>
   <Personality.PersonalityNodeDef>
     <defName>Assertiveness</defName>
@@ -29,6 +38,14 @@
         <modifier>-0.13</modifier>
       </li>
     </traitModifiers>
+    <statModifiers>
+      <li>
+        <statDef>TradePriceImprovement</statDef>
+        <isFactor>true</isFactor>
+        <value>1.1</value>
+        <beginsAt>0.2</beginsAt>
+      </li>
+    </statModifiers>
   </Personality.PersonalityNodeDef>
   <Personality.PersonalityNodeDef>
     <defName>Compassion</defName>
