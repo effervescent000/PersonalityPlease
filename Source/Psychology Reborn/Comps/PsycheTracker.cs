@@ -30,8 +30,10 @@ namespace Personality
             Random random = new(seed);
             foreach (PersonalityNode node in nodes.Values)
             {
-                float r = random.Next(0, 100);
-                node.BaseRating = r / 100f;
+                if (node.BaseRating < 0) {
+                    float r = random.Next(0, 100);
+                    node.BaseRating = r / 100f;
+                }
                 node.ModifyRating(pawn);
             }
         }

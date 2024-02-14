@@ -10,7 +10,7 @@ public class PersonalityNode : IExposable
 {
     public PersonalityNodeDef def;
     private readonly Pawn pawn;
-    private float baseRating;
+    private float baseRating = -1;
     private float cachedRating = 0.5f;
 
 

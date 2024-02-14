@@ -51,7 +51,6 @@
     <Compile Include="GUI\UIComponents.cs" />
     <Compile Include="Harmony\HarmonyStartup.cs" />
     <Compile Include="Harmony\Interactions\Pawn_RelationsTracker.cs" />
-    <Compile Include="Harmony\PawnGenerationPatch.cs" />
     <Compile Include="Helpers\CompatibilityHelper.cs" />
     <Compile Include="Helpers\PersonalityComparison.cs" />
     <Compile Include="Helpers\PersonalityHelper.cs" />
