@@ -65,7 +65,31 @@
     <preceptModifiers>
       <li>
         <preceptDef>Execution_Abhorrent</preceptDef>
-        <modifier>0.13</modifier>
+        <modifier>0.15</modifier>
+      </li>
+      <li>
+        <preceptDef>Execution_Horrible</preceptDef>
+        <modifier>.07</modifier>
+      </li>
+      <li>
+        <preceptDef>Execution_DontCare</preceptDef>
+        <modifier>-0.04</modifier>
+      </li>
+      <li>
+        <preceptDef>Execution_RespectedIfGuilty</preceptDef>
+        <modifier>-0.08</modifier>
+      </li>
+      <li>
+        <preceptDef>Execution_Required</preceptDef>
+        <modifier>-0.15</modifier>
+      </li>
+      <li>
+        <preceptDef>AnimalConnection_Strong</preceptDef>
+        <modifier>0.07</modifier>
+      </li>
+      <li>
+        <preceptDef>Bonding_Disapproved</preceptDef>
+        <modifier>-0.07</modifier>
       </li>
     </preceptModifiers>
   </Personality.PersonalityNodeDef>
@@ -86,13 +110,31 @@
       </li>
       <li MayRequire="vanillaexpanded.vanillatraitsexpanded">
         <trait>VTE_Vengeful</trait>
-        <modifier>0.13</modifier>
+        <modifier>0.125</modifier>
       </li>
       <li MayRequire="vanillaexpanded.vanillatraitsexpanded">
         <trait>VTE_Snob</trait>
         <modifier>0.2</modifier>
       </li>
     </traitModifiers>
+    <preceptModifiers>
+      <li>
+        <preceptDef>Raiding_Respected</preceptDef>
+        <modifier>0.075</modifier>
+      </li>
+      <li>
+        <preceptDef>Raiding_Required</preceptDef>
+        <modifier>0.15</modifier>
+      </li>
+      <li>
+        <preceptDef>Proselytizing_Occasionally</preceptDef>
+        <modifier>0.04</modifier>
+      </li>
+      <li>
+        <preceptDef>Proselytizing_Frequently</preceptDef>
+        <modifier>0.075</modifier>
+      </li>
+    </preceptModifiers>
 
   </Personality.PersonalityNodeDef>
   <Personality.PersonalityNodeDef>
