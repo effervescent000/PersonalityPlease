@@ -12,7 +12,7 @@ namespace Personality
         public CompProperties_Psychology()
         {
 
-            compClass = typeof(PsychologyComp);
+            compClass = typeof(MindComp);
         }
     }
 }

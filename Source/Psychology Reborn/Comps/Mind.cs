@@ -4,13 +4,12 @@ using Verse;
 
 namespace Personality;
 
-public class PsycheTracker : IExposable
+public class Mind : IExposable
 {
     private readonly Pawn pawn;
     public Dictionary<string, PersonalityNode> nodes;
-    //private Hediff hediff;
 
-    public PsycheTracker(Pawn pawn)
+    public Mind(Pawn pawn)
     {
         this.pawn = pawn;
     }
@@ -27,10 +26,6 @@ public class PsycheTracker : IExposable
         {
             nodes.Add(def.defName, new PersonalityNode(def, pawn));
         }
-
-        //hediff = HediffMaker.MakeHediff(HediffDefOfPersonality.PP_Personality, pawn);
-
-        //pawn.health.AddHediff(hediff);
 
         int seed = PersonalityHelper.PawnSeed(pawn);
         Random random = new(seed);

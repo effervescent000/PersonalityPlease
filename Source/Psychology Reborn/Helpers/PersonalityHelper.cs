@@ -42,9 +42,9 @@ namespace Personality
             return Gen.HashCombineInt(thingID, worldID);
         }
 
-        public static PsychologyComp Comp(Pawn pawn)
+        public static MindComp Comp(Pawn pawn)
         {
-            return pawn.GetComp<PsychologyComp>();
+            return pawn.GetComp<MindComp>();
         }
 
         public static List<PersonalityNodeDef> GetAll

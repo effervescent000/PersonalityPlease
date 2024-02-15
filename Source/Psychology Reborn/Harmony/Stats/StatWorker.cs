@@ -16,7 +16,7 @@ public class StatWorkerPatch
         {
             ref StatDef stat = ref statRef.Invoke(__instance);
 
-            PsychologyComp comp = PersonalityHelper.Comp((Pawn)req.Thing);
+            MindComp comp = PersonalityHelper.Comp((Pawn)req.Thing);
             ModifierValues modValues = comp.Modifiers.GetValue(stat.defName);
             if (modValues != null)
             {

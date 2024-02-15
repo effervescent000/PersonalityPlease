@@ -47,10 +47,10 @@
     <Compile Include="Comps\CompProperties_Psychology.cs" />
     <Compile Include="Comps\ModifierTracker.cs" />
     <Compile Include="Comps\ModifierValues.cs" />
-    <Compile Include="Comps\PsycheTracker.cs" />
-    <Compile Include="Comps\PsychologyComp.cs" />
+    <Compile Include="Comps\Mind.cs" />
+    <Compile Include="Comps\MindComp.cs" />
     <Compile Include="DefOf\HediffDefOfPersonality.cs" />
-    <Compile Include="GUI\ITab_Pawn_Psyche.cs" />
+    <Compile Include="GUI\ITab_Pawn_Mind.cs" />
     <Compile Include="GUI\UIComponents.cs" />
     <Compile Include="Harmony\HarmonyStartup.cs" />
     <Compile Include="Harmony\Interactions\Pawn_RelationsTracker.cs" />

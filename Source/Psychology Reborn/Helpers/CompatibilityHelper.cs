@@ -9,15 +9,15 @@ namespace Personality
 
         public static float EvaluateCompatibility(Pawn initiator, Pawn recipient)
         {
-            PsychologyComp initComp = PersonalityHelper.Comp(initiator);
-            PsychologyComp reciComp = PersonalityHelper.Comp(recipient);
+            MindComp initComp = PersonalityHelper.Comp(initiator);
+            MindComp reciComp = PersonalityHelper.Comp(recipient);
 
             List<PersonalityComparison> comparisons = new();
             List<PersonalityNodeDef> defs = PersonalityHelper.GetAll;
 
             foreach (PersonalityNodeDef def in defs)
             {
-                PersonalityComparison comparison = new(initValue: initComp.Psyche.nodes[def.defName].AdjustedRating, reciValue: reciComp.Psyche.nodes[def.defName].AdjustedRating, personalityDefName: def.defName);
+                PersonalityComparison comparison = new(initValue: initComp.Mind.nodes[def.defName].AdjustedRating, reciValue: reciComp.Mind.nodes[def.defName].AdjustedRating, personalityDefName: def.defName);
                 comparisons.Add(comparison);
 
             }

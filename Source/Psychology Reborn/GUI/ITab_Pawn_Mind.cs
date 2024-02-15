@@ -6,16 +6,16 @@ using Verse;
 
 namespace Personality
 {
-    public class ITab_Pawn_Psyche : ITab
+    public class ITab_Pawn_Mind : ITab
     {
 
         private static readonly Listing_Standard listingStandard = new();
 
-        public ITab_Pawn_Psyche()
+        public ITab_Pawn_Mind()
         {
             size = new Vector2(400f, 400f);
-            labelKey = "TabPsyche";
-            tutorTag = "Psyche";
+            labelKey = "TabMind";
+            tutorTag = "Mind";
         }
 
         protected override void FillTab()
@@ -24,7 +24,7 @@ namespace Personality
             Pawn? pawn = PawnToDisplay;
             if (pawn != null)
             {
-                PsychologyComp psyche = pawn.GetComp<PsychologyComp>();
+                MindComp psyche = pawn.GetComp<MindComp>();
 
                 Rect rect = new Rect(0f, 0f, size.x, size.y).ContractedBy(1f);
                 Text.Font = GameFont.Small;
@@ -37,12 +37,11 @@ namespace Personality
                 {
                     Rect rectFromStandard = listingStandard.GetRect(20f, listingStandard.ColumnWidth);
 
-                    Dictionary<string, PersonalityNode> nodes = psyche.Psyche.nodes;
+                    Dictionary<string, PersonalityNode> nodes = psyche.Mind.nodes;
 
                     int i = 0;
                     foreach (PersonalityNode node in nodes.Values)
                     {
-
                         string label = $"{node.def.defName} @ {node.AdjustedRating} (base {node.BaseRating})";
                         float textHeight = Text.CalcHeight(label, 250f);
                         Rect innerRect = new(0f, (rectFromStandard.y + textHeight) * i, 250f, textHeight);
