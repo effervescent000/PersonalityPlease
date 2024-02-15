@@ -26,28 +26,29 @@ namespace Personality
             {
                 MindComp comp = PersonalityHelper.Comp(pawn);
 
-                Rect rect = new Rect(0f, 0f, size.x, size.y).ContractedBy(1f);
-                Text.Font = GameFont.Small;
-                GUI.color = Color.white;
+                Rect rect = new Rect(0f, 0f, size.x, size.y).ContractedBy(10f);
                 listingStandard.ColumnWidth = size.x - 20;
                 listingStandard.Begin(rect);
 
 
                 if (comp != null)
                 {
-                    Rect rectFromStandard = listingStandard.GetRect(20f, listingStandard.ColumnWidth);
+                    
+                    Rect rectFromStandard = listingStandard.GetRect(20f, 80);
 
                     Dictionary<string, PersonalityNode> nodes = comp.Mind.nodes;
 
                     int i = 0;
                     foreach (PersonalityNode node in nodes.Values)
                     {
-                        string label = $"{node.def.defName} @ {node.AdjustedRating} (base {node.BaseRating})";
+                        Text.Font = GameFont.Small;
+                        GUI.color = Color.white;
+                        string label = node.def.defName;
                         float textHeight = Text.CalcHeight(label, 250f);
-                        Rect innerRect = new(0f, (rectFromStandard.y + textHeight) * i, 250f, textHeight);
+                        Rect innerRect = new(0f, (rectFromStandard.y + textHeight) * i, 150f, textHeight);
                         Widgets.Label(innerRect, label);
                         Rect lineRect = new(innerRect.xMax, (rectFromStandard.y + textHeight) * i, 100f, textHeight);
-                        UIComponents.LineWithIndicator(lineRect, value: (node.AdjustedRating + 1) / 2);
+                        UIComponents.LineWithIndicator(lineRect, value: (node.AdjustedRating + 1) / 2, text: node.AdjustedRating.ToString());
 
                         i++;
                     }

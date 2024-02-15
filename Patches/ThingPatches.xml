@@ -3,14 +3,14 @@
   <Operation Class="PatchOperationAdd">
     <xpath>Defs/ThingDef[thingClass="Pawn"]/inspectorTabs</xpath>
     <value>
-      <li>Personality.ITab_Pawn_Psyche</li>
+      <li>Personality.ITab_Pawn_Mind</li>
     </value>
   </Operation>
   <Operation Class="PatchOperationAdd">
     <xpath>Defs/ThingDef[thingClass="Pawn"]/comps</xpath>
     <value>
       <li>
-        <compClass>Personality.PsychologyComp</compClass>
+        <compClass>Personality.MindComp</compClass>
       </li>
     </value>
   </Operation>
