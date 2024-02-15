@@ -24,7 +24,7 @@ namespace Personality
             Pawn? pawn = PawnToDisplay;
             if (pawn != null)
             {
-                MindComp psyche = pawn.GetComp<MindComp>();
+                MindComp comp = PersonalityHelper.Comp(pawn);
 
                 Rect rect = new Rect(0f, 0f, size.x, size.y).ContractedBy(1f);
                 Text.Font = GameFont.Small;
@@ -33,11 +33,11 @@ namespace Personality
                 listingStandard.Begin(rect);
 
 
-                if (psyche != null)
+                if (comp != null)
                 {
                     Rect rectFromStandard = listingStandard.GetRect(20f, listingStandard.ColumnWidth);
 
-                    Dictionary<string, PersonalityNode> nodes = psyche.Mind.nodes;
+                    Dictionary<string, PersonalityNode> nodes = comp.Mind.nodes;
 
                     int i = 0;
                     foreach (PersonalityNode node in nodes.Values)
