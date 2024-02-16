@@ -7,6 +7,8 @@ namespace Personality
     {
         public string highDescription;
         public string lowDescription;
+        public string highLabel;
+        public string lowLabel;
         public List<PersonalityNodeTraitModifier> traitModifiers;
         public List<PersonalityNodePreceptModifier> preceptModifiers;
         public List<PersonalityStatModifier> statModifiers;

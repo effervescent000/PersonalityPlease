@@ -2,6 +2,10 @@
 <Defs>
   <Personality.PersonalityNodeDef>
     <defName>Rationality</defName>
+    <highDescription>{PAWN_nameDef} is more likely to think things through than make emotional decisions. On the other hand, {PAWN_pronoun} is less in tune with {PAWN_possessive} emotions and may struggle to articulate them.</highDescription>
+    <lowDescription>{PAWN_nameDef} works on vibes. {PAWN_pronoun}'s worse at things requiring logical thought, but handles {PAWN_possessive} emotions better and has a better read on people.</lowDescription>
+    <highLabel>rational</highLabel>
+    <lowLabel>emotional</lowLabel>
     <traitModifiers>
       <li>
         <trait>TooSmart</trait>
@@ -20,22 +24,44 @@
         <beginsAt>0.25</beginsAt>
         <maxValueAt>1</maxValueAt>
       </li>
+      <li>
+        <statDef>MentalBreakThreshold</statDef>
+        <isFactor>false</isFactor>
+        <value>-0.1</value>
+        <beginsAt>0.25</beginsAt>
+      </li>
+      <li>
+        <statDef>MentalBreakThreshold</statDef>
+        <isFactor>false</isFactor>
+        <value>0.05</value>
+        <beginsAt>-0.5</beginsAt>
+      </li>
+      <li>
+        <statDef>NegotiationAbility</statDef>
+        <isFactor>false</isFactor>
+        <value>0.05</value>
+        <beginsAt>-0.25</beginsAt>
+      </li>
     </statModifiers>
   </Personality.PersonalityNodeDef>
   <Personality.PersonalityNodeDef>
     <defName>Assertiveness</defName>
+    <highDescription>{PAWN_nameDef} gives voice to their needs and opinions.</highDescription>
+    <lowDescription>{PAWN_nameDef} feels uncomfortable sticking up for themselves.</lowDescription>
+    <highLabel>outspoken</highLabel>
+    <lowLabel>meek</lowLabel>
     <traitModifiers>
       <li MayRequire="vanillaexpanded.vanillatraitsexpanded">
         <trait>VTE_Brave</trait>
-        <modifier>0.15</modifier>
+        <modifier>0.3</modifier>
       </li>
       <li MayRequire="vanillaexpanded.vanillatraitsexpanded">
         <trait>VTE_Coward</trait>
-        <modifier>-0.15</modifier>
+        <modifier>-0.3</modifier>
       </li>
       <li>
         <trait>Wimp</trait>
-        <modifier>-0.13</modifier>
+        <modifier>-0.25</modifier>
       </li>
     </traitModifiers>
     <statModifiers>
@@ -49,34 +75,38 @@
   </Personality.PersonalityNodeDef>
   <Personality.PersonalityNodeDef>
     <defName>Compassion</defName>
+    <highDescription>{PAWN_nameDef} is in tune with the emotions of others. {PAWN_pronoun} prioritizes kindness and helping others.</highDescription>
+    <lowDescription>{PAWN_nameDef}'s first priority is {PAWN_possessive} own wellbeing. {PAWN_pronoun} will not go out of their way to help someone.</lowDescription>
+    <highLabel>empathetic</highLabel>
+    <lowLabel>ruthless</lowLabel>
     <traitModifiers>
       <li>
         <trait>Psychopath</trait>
-        <modifier>-1</modifier>
+        <modifier>-5</modifier>
       </li>
       <li>
         <trait>Kind</trait>
-        <modifier>.75</modifier>
+        <modifier>1.5</modifier>
       </li>
       <li>
         <trait>Bloodlust</trait>
-        <modifier>-0.25</modifier>
+        <modifier>-0.5</modifier>
       </li>
       <li>
         <trait>Greedy</trait>
-        <modifier>-0.05</modifier>
+        <modifier>-0.1</modifier>
       </li>
       <li>
         <trait>Jealous</trait>
-        <modifier>-0.05</modifier>
+        <modifier>-0.1</modifier>
       </li>
       <li>
         <trait>DislikesMen</trait>
-        <modifier>-0.13</modifier>
+        <modifier>-0.25</modifier>
       </li>
       <li>
         <trait>DislikesWomen</trait>
-        <modifier>-0.13</modifier>
+        <modifier>-0.25</modifier>
       </li>
     </traitModifiers>
     <preceptModifiers>
@@ -132,6 +162,10 @@
   </Personality.PersonalityNodeDef>
   <Personality.PersonalityNodeDef>
     <defName>Ambition</defName>
+    <highDescription>{PAWN_nameDef} has a strong internal motivation to improve {PAWN_objective}self and {PAWN_possessive} colony.</highDescription>
+    <lowDescription>{PAWN_nameDef} is happy with how things are, and doesn't have much motivation to change it.</lowDescription>
+    <highLabel>driven</highLabel>
+    <lowLabel>complacent</lowLabel>
     <traitModifiers>
       <li MayRequire="vanillaexpanded.vanillatraitsexpanded">
         <trait>VTE_Workaholic</trait>
@@ -139,37 +173,37 @@
       </li>
       <li MayRequire="vanillaexpanded.vanillatraitsexpanded">
         <trait>VTE_Rebel</trait>
-        <modifier>-0.05</modifier>
-      </li>
-      <li MayRequire="vanillaexpanded.vanillatraitsexpanded">
-        <trait>VTE_Submissive</trait>
         <modifier>-0.1</modifier>
       </li>
       <li MayRequire="vanillaexpanded.vanillatraitsexpanded">
+        <trait>VTE_Submissive</trait>
+        <modifier>-0.2</modifier>
+      </li>
+      <li MayRequire="vanillaexpanded.vanillatraitsexpanded">
         <trait>VTE_Vengeful</trait>
-        <modifier>0.125</modifier>
+        <modifier>0.25</modifier>
       </li>
       <li MayRequire="vanillaexpanded.vanillatraitsexpanded">
         <trait>VTE_Snob</trait>
-        <modifier>0.2</modifier>
+        <modifier>0.4</modifier>
       </li>
     </traitModifiers>
     <preceptModifiers>
       <li>
         <preceptDef>Raiding_Respected</preceptDef>
-        <modifier>0.075</modifier>
-      </li>
-      <li>
-        <preceptDef>Raiding_Required</preceptDef>
         <modifier>0.15</modifier>
       </li>
       <li>
+        <preceptDef>Raiding_Required</preceptDef>
+        <modifier>0.3</modifier>
+      </li>
+      <li>
         <preceptDef>Proselytizing_Occasionally</preceptDef>
-        <modifier>0.04</modifier>
+        <modifier>0.08</modifier>
       </li>
       <li>
         <preceptDef>Proselytizing_Frequently</preceptDef>
-        <modifier>0.075</modifier>
+        <modifier>0.15</modifier>
       </li>
     </preceptModifiers>
     <statModifiers>
@@ -177,17 +211,21 @@
         <statDef>WorkSpeedGlobal</statDef>
         <isFactor>false</isFactor>
         <beginsAt>0.5</beginsAt>
-        <value>.02</value>
+        <value>.05</value>
       </li>
     </statModifiers>
   </Personality.PersonalityNodeDef>
   <Personality.PersonalityNodeDef>
     <defName>Meticulousness</defName>
+    <highDescription>{PAWN_nameDef} is thorough in everything they do. Unfortunately, they put a lot of stress on themselves because of this.</highDescription>
+    <lowDescription>{PAWN_nameDef} cuts corners. {PAWN_possessive} work is generally a bit lower quality, but {PAWN_pronoun} doesn't get stressed out over it.</lowDescription>
+    <highLabel>meticulous</highLabel>
+    <lowLabel>careless</lowLabel>
     <traitModifiers>
       <li>
         <trait>Industriousness</trait>
         <degree>-1</degree>
-        <modifier>-0.5</modifier>
+        <modifier>-1</modifier>
       </li>
       <li>
         <trait>Industriousness</trait>
@@ -201,16 +239,30 @@
       </li>
       <li MayRequire="vanillaexpanded.vanillatraitsexpanded">
         <trait>VTE_Perfectionist</trait>
-        <modifier>0.5</modifier>
+        <modifier>1</modifier>
       </li>
       <li MayRequire="vanillaexpanded.vanillatraitsexpanded">
         <trait>VTE_Neat</trait>
-        <modifier>0.08</modifier>
+        <modifier>0.15</modifier>
       </li>
       <li MayRequire="vanillaexpanded.vanillatraitsexpanded">
         <trait>VTE_Slob</trait>
-        <modifier>-0.08</modifier>
+        <modifier>-0.15</modifier>
       </li>
     </traitModifiers>
+    <statModifiers>
+      <li>
+        <statDef>MentalBreakThreshold</statDef>
+        <isFactor>false</isFactor>
+        <beginsAt>0.25</beginsAt>
+        <value>0.15</value>
+      </li>
+      <li>
+        <statDef>MentalBreakThreshold</statDef>
+        <isFactor>false</isFactor>
+        <beginsAt>-0.25</beginsAt>
+        <value>-0.15</value>
+      </li>
+    </statModifiers>
   </Personality.PersonalityNodeDef>
 </Defs>

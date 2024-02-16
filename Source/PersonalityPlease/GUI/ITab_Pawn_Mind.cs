@@ -45,7 +45,7 @@ namespace Personality
                         Rect innerRect = new(0f, (personalityRect.y + textHeight) * i + topPadding, 150f, textHeight);
                         Widgets.Label(innerRect, label);
                         Rect lineRect = new(innerRect.xMax, (personalityRect.y + textHeight) * i + topPadding, 100f, textHeight);
-                        UIComponents.LineWithIndicator(lineRect, value: (node.AdjustedRating + 1) / 2, text: node.AdjustedRating.ToString());
+                        UIComponents.LineWithIndicator(lineRect, value: (node.AdjustedRating + 1) / 2, text: node.AdjustedRating.ToString(), tooltip: PersonalityHelper.GetDescription(node, pawn));
                         i++;
                         
                     }

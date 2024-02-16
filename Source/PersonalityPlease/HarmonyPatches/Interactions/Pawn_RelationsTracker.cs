@@ -2,7 +2,7 @@
 using RimWorld;
 using Verse;
 
-namespace Personality.Harmony;
+namespace Personality.HarmonyPatches;
 
 [HarmonyPatch(typeof(Pawn_RelationsTracker), nameof(Pawn_RelationsTracker.CompatibilityWith))]
 public class Pawn_RelationsTracker_Patch

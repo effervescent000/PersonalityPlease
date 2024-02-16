@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Personality</RootNamespace>
     <AssemblyName>Personality Please</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
@@ -51,9 +51,9 @@
     <Compile Include="Comps\MindComp.cs" />
     <Compile Include="GUI\ITab_Pawn_Mind.cs" />
     <Compile Include="GUI\UIComponents.cs" />
-    <Compile Include="Harmony\HarmonyStartup.cs" />
-    <Compile Include="Harmony\Interactions\Pawn_RelationsTracker.cs" />
-    <Compile Include="Harmony\Stats\StatWorker.cs" />
+    <Compile Include="HarmonyPatches\HarmonyStartup.cs" />
+    <Compile Include="HarmonyPatches\Interactions\Pawn_RelationsTracker.cs" />
+    <Compile Include="HarmonyPatches\Stats\StatWorker.cs" />
     <Compile Include="Helpers\CompatibilityHelper.cs" />
     <Compile Include="Helpers\PersonalityComparison.cs" />
     <Compile Include="Helpers\PersonalityHelper.cs" />
@@ -64,7 +64,7 @@
     <Compile Include="Personality\PersonalityNodeTraitModifier.cs" />
     <Compile Include="Personality\PersonalityStatModifier.cs" />
     <Compile Include="Helpers\TraitLedStore.cs" />
-    <Compile Include="Personality_Please.cs" />
+    <Compile Include="PersonalityPleaseModBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -73,6 +73,11 @@
     </PackageReference>
     <PackageReference Include="Lib.Harmony">
       <Version>2.2.2</Version>
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
+    <PackageReference Include="UnlimitedHugs.Rimworld.HugsLib">
+      <Version>10.0.1</Version>
+      <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

@@ -42,7 +42,7 @@ public class MindComp : ThingComp
                             Factor = modifier.isFactor ? modifier.GetValueAt(node.AdjustedRating) : 1f
                         };
                         modifierTracker.AppendValue(modifier.StatDef.defName, modValues);
-                        Log.Message($"Added stat value for {modifier.StatDef.defName}: {modValues.Offset} || {modValues.Factor}");
+                        //Log.Message($"Added stat value for {modifier.StatDef.defName}: {modValues.Offset} || {modValues.Factor}");
                     }
                 }
             }

@@ -2,7 +2,7 @@
 using RimWorld;
 using Verse;
 
-namespace Personality.Harmony.Stats;
+namespace Personality.HarmonyPatches;
 
 [HarmonyPatch(typeof(StatWorker), nameof(StatWorker.GetValueUnfinalized))]
 public class StatWorkerPatch
@@ -28,9 +28,6 @@ public class StatWorkerPatch
                 __result += modValues.Offset;
                 __result *= modValues.Factor;
             }
-            
-
         }
-
     }
 }

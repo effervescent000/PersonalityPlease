@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- itab title -->
+  <TabMind>Mind</TabMind>
+
+  <!-- personality descriptors -->
+  <PersonalityNodeAverage>{PAWN_nameDef} isn't especially {0} or {1}. {PAWN_pronoun} receives neither the benefits nor the drawbacks of either extreme.</PersonalityNodeAverage>
+</LanguageData>
