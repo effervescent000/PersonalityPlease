@@ -29,8 +29,7 @@ public class Mind : IExposable
 
         int seed = PersonalityHelper.PawnSeed(pawn);
         Random random = new(seed);
-        
-        
+
         foreach (PersonalityNode node in nodes.Values)
         {
             if (node.BaseRating < -1)
@@ -46,7 +45,8 @@ public class Mind : IExposable
         ApplyAdjustments(pawn);
     }
 
-    public void ApplyAdjustments(Pawn pawn) {
+    public void ApplyAdjustments(Pawn pawn)
+    {
         foreach (PersonalityNode node in nodes.Values)
         {
             node.ModifyRating(pawn);
@@ -57,5 +57,4 @@ public class Mind : IExposable
     {
         Scribe_Collections.Look(ref nodes, "personality", LookMode.Value, LookMode.Deep);
     }
-
 }

@@ -1,4 +1,5 @@
 ﻿#nullable enable
+
 using RimWorld;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +9,6 @@ namespace Personality
 {
     public class ITab_Pawn_Mind : ITab
     {
-
         public ITab_Pawn_Mind()
         {
             size = new Vector2(400f, 400f);
@@ -18,7 +18,6 @@ namespace Personality
 
         protected override void FillTab()
         {
-
             Pawn? pawn = PawnToDisplay;
             if (pawn != null)
             {
@@ -47,9 +46,7 @@ namespace Personality
                         Rect lineRect = new(innerRect.xMax, (personalityRect.y + textHeight) * i + topPadding, 100f, textHeight);
                         UIComponents.LineWithIndicator(lineRect, value: (node.AdjustedRating + 1) / 2, text: node.AdjustedRating.ToString(), tooltip: PersonalityHelper.GetDescription(node, pawn));
                         i++;
-                        
                     }
-            
                 }
                 Widgets.EndGroup();
             }
@@ -83,6 +80,5 @@ namespace Personality
                 return null;
             }
         }
-
     }
 }

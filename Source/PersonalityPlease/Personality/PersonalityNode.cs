@@ -1,4 +1,5 @@
 ﻿#nullable enable
+
 using RimWorld;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,8 +14,8 @@ public class PersonalityNode : IExposable
     private float baseRating = -2f;
     private float adjustedRating = 0f;
 
-
 #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
+
     public PersonalityNode()
 
     {
@@ -24,7 +25,6 @@ public class PersonalityNode : IExposable
 
     public PersonalityNode(PersonalityNodeDef def, float baseRating, Pawn pawn)
     {
-
         this.def = def;
         this.baseRating = baseRating;
         this.pawn = pawn;
@@ -60,13 +60,11 @@ public class PersonalityNode : IExposable
             Dictionary<string, float>? result = PersonalityHelper.traitLedStore.GetValue(traitPair);
             if (result is not null)
             {
-
                 if (result.TryGetValue(def.defName, out float value))
                 {
                     adjustedRating += value;
                 }
             }
-
         }
 
         Ideo ideo = pawn.Ideo;
@@ -81,18 +79,14 @@ public class PersonalityNode : IExposable
                     adjustedRating += value;
                 }
             }
-
         }
 
         adjustedRating = Mathf.Clamp(adjustedRating, -1, 1);
-
     }
-
 
     public void ExposeData()
     {
         Scribe_Defs.Look(ref def, "def");
         Scribe_Values.Look(ref baseRating, "baseRating");
-
     }
 }
