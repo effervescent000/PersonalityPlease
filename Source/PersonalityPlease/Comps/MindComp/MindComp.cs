@@ -7,10 +7,11 @@ public class MindComp : ThingComp
 {
     private Mind mind;
     private ModifierTracker modifierTracker;
+    private IdeoFeelingsTracker ideoFeelings;
 
     public Mind Mind => mind;
-
     public ModifierTracker Modifiers => modifierTracker;
+    public IdeoFeelingsTracker IdeoFeelings => ideoFeelings;
 
     public override void PostExposeData()
     {
@@ -39,9 +40,10 @@ public class MindComp : ThingComp
                         Factor = modifier.isFactor ? modifier.GetValueAt(node.AdjustedRating) : 1f
                     };
                     modifierTracker.AppendValue(modifier.StatDef.defName, modValues);
-                    //Log.Message($"Added stat value for {modifier.StatDef.defName}: {modValues.Offset} || {modValues.Factor}");
                 }
             }
         }
+        ideoFeelings = new(parent as Pawn);
+        ideoFeelings.Initialize();
     }
 }
