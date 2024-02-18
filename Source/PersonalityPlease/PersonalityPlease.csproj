@@ -44,17 +44,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Comps\CompProperties_Psychology.cs" />
-    <Compile Include="Comps\ModifierTracker.cs" />
-    <Compile Include="Comps\ModifierValues.cs" />
-    <Compile Include="Comps\Mind.cs" />
-    <Compile Include="Comps\MindComp.cs" />
+    <Compile Include="Comps\IdeoProfile\IdeoProfile.cs" />
+    <Compile Include="Comps\IdeoProfile\IdeoProfileComp.cs" />
+    <Compile Include="Comps\MindComp\CompProperties_Psychology.cs" />
+    <Compile Include="Comps\MindComp\IdeoFeelingsTracker.cs" />
+    <Compile Include="Comps\MindComp\ModifierTracker.cs" />
+    <Compile Include="Comps\MindComp\ModifierValues.cs" />
+    <Compile Include="Comps\MindComp\Mind.cs" />
+    <Compile Include="Comps\MindComp\MindComp.cs" />
     <Compile Include="GUI\ITab_Pawn_Mind.cs" />
     <Compile Include="GUI\UIComponents.cs" />
     <Compile Include="HarmonyPatches\HarmonyStartup.cs" />
     <Compile Include="HarmonyPatches\Interactions\Pawn_RelationsTracker.cs" />
     <Compile Include="HarmonyPatches\Stats\StatWorker.cs" />
     <Compile Include="Helpers\CompatibilityHelper.cs" />
+    <Compile Include="Helpers\IdeoEvaluation.cs" />
+    <Compile Include="Helpers\IdeoHelper.cs" />
     <Compile Include="Helpers\PersonalityComparison.cs" />
     <Compile Include="Helpers\PersonalityHelper.cs" />
     <Compile Include="Helpers\PreceptLedStore.cs" />

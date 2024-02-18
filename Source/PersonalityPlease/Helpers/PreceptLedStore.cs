@@ -1,34 +1,30 @@
-﻿#nullable enable
-
-using System.Collections.Generic;
-using Verse;
+﻿using System.Collections.Generic;
 
 namespace Personality
 {
-    public class PreceptLedStore
+    public static class PreceptLedStore
     {
-        private readonly Dictionary<string, Dictionary<string, float>> preceptLedStore = new();
+        private static readonly Dictionary<string, Dictionary<string, float>> store = new();
 
-        public void AppendValue(string persNodeName, PersonalityNodePreceptModifier nodeMod)
+        public static void AppendValue(string persNodeName, PersonalityNodePreceptModifier nodeMod)
         {
-            
             string preceptName = nodeMod.preceptDef.defName;
-            bool success = preceptLedStore.TryAdd(preceptName, new Dictionary<string, float>() { { persNodeName, nodeMod.modifier } });
+            bool success = store.TryAdd(preceptName, new Dictionary<string, float>() { { persNodeName, nodeMod.modifier } });
             if (!success)
             {
-                preceptLedStore[preceptName].Add(persNodeName, nodeMod.modifier);
+                store[preceptName].Add(persNodeName, nodeMod.modifier);
             }
-            Log.Message($"Added to the store {persNodeName}: {nodeMod}");
         }
 
-        public Dictionary<string, float>? GetValue(string preceptName)
+        public static Dictionary<string, float> GetValue(string preceptName)
         {
-            if (preceptLedStore.TryGetValue(preceptName, out var value))
+            if (store.TryGetValue(preceptName, out Dictionary<string, float> value))
             {
                 return value;
             }
             return null;
-
         }
+
+        public static Dictionary<string, Dictionary<string, float>> GetAll => store;
     }
 }

@@ -70,7 +70,7 @@ public class PersonalityNode : IExposable
         Ideo ideo = pawn.Ideo;
         foreach (Precept precept in ideo.PreceptsListForReading)
         {
-            Dictionary<string, float>? result = PersonalityHelper.preceptLedStore.GetValue(precept.def.defName);
+            Dictionary<string, float> result = PreceptLedStore.GetValue(precept.def.defName);
             if (result is not null)
             {
                 if (result.TryGetValue(def.defName, out float value))

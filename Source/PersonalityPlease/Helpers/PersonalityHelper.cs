@@ -1,5 +1,4 @@
-﻿
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Verse;
 
 namespace Personality;
@@ -8,7 +7,6 @@ namespace Personality;
 public static class PersonalityHelper
 {
     public static TraitLedStore traitLedStore = new();
-    public static PreceptLedStore preceptLedStore = new();
 
     private static List<PersonalityNodeDef> PersonalityNodeDefList => DefDatabase<PersonalityNodeDef>.AllDefsListForReading;
 
@@ -27,12 +25,10 @@ public static class PersonalityHelper
             {
                 foreach (PersonalityNodePreceptModifier preceptMod in nodeDef.preceptModifiers)
                 {
-                    preceptLedStore.AppendValue(nodeDef.defName, preceptMod);
+                    PreceptLedStore.AppendValue(nodeDef.defName, preceptMod);
                 }
             }
-
         }
-
     }
 
     public static int PawnSeed(Pawn pawn)

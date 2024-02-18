@@ -1,30 +1,27 @@
 ﻿using System;
 using Verse;
 
-namespace Personality
+namespace Personality;
+
+public class PersonalityComparison
 {
-    public class PersonalityComparison
+    public string personalityDefName;
+    public float initValue;
+    public float reciValue;
+
+    public PersonalityComparison(float initValue, float reciValue, string personalityDefName)
     {
-        public string personalityDefName;
-        public float initValue;
-        public float reciValue;
+        this.personalityDefName = personalityDefName;
+        this.initValue = initValue;
+        this.reciValue = reciValue;
+    }
 
-        public PersonalityComparison(float initValue, float reciValue, string personalityDefName)
+    public float Difference
+    {
+        get
         {
-            this.personalityDefName = personalityDefName;
-            this.initValue = initValue;
-            this.reciValue = reciValue;
+            float diff = Math.Abs(initValue - reciValue);
+            return diff;
         }
-
-        public float Difference
-        {
-            get
-            {
-                float diff = Math.Abs(initValue - reciValue);
-                //Log.Message($"initValue: {initValue}, reciValue: {reciValue}, diff: {diff}");
-                return diff;
-            }
-        }
-
     }
 }
