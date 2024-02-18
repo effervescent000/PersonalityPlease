@@ -265,4 +265,41 @@
       </li>
     </statModifiers>
   </Personality.PersonalityNodeDef>
+  <Personality.PersonalityNodeDef MayRequire="Ludeon.RimWorld.Ideology">
+    <defName>Lawfulness</defName>
+    <highDescription>{PAWN_nameDef} cares a lot about rules. {PAWN_pronoun} is very unlikely to break the precepts of {PAWN_possessive} ideoligion.</highDescription>
+    <lowDescription>{PAWN_nameDef} does what seems right in the moment. {PAWN_pronoun} may break the precepts of {PAWN_possessive} ideoligion if it feels appropriate.</lowDescription>
+    <lowLabel>chaotic</lowLabel>
+    <highLabel>lawful</highLabel>
+    <preceptModifiers>
+      <li>
+        <preceptDef>IdeoDiversity_Approved</preceptDef>
+        <modifier>-0.15</modifier>
+      </li>
+      <li>
+        <preceptDef>IdeoDiversity_Exalted</preceptDef>
+        <modifier>-0.25</modifier>
+      </li>
+      <li>
+        <preceptDef>IdeoDiversity_Respected</preceptDef>
+        <modifier>-0.075</modifier>
+      </li>
+      <li>
+        <preceptDef>IdeoDiversity_Standard</preceptDef>
+        <modifier>0</modifier>
+      </li>
+      <li>
+        <preceptDef>IdeoDiversity_Disapproved</preceptDef>
+        <modifier>0.075</modifier>
+      </li>
+      <li>
+        <preceptDef>IdeoDiversity_Horrible</preceptDef>
+        <modifier>0.15</modifier>
+      </li>
+      <li>
+        <preceptDef>IdeoDiversity_Abhorrent</preceptDef>
+        <modifier>0.25</modifier>
+      </li>
+    </preceptModifiers>
+  </Personality.PersonalityNodeDef>
 </Defs>
