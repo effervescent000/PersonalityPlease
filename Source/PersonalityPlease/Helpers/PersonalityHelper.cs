@@ -38,15 +38,9 @@ public static class PersonalityHelper
         return Gen.HashCombineInt(thingID, worldID);
     }
 
-    public static MindComp Comp(Pawn pawn)
-    {
-        return pawn.GetComp<MindComp>();
-    }
+    public static MindComp Comp(Pawn pawn) => pawn.GetComp<MindComp>();
 
-    public static List<PersonalityNodeDef> GetAll
-    {
-        get => DefDatabase<PersonalityNodeDef>.AllDefsListForReading;
-    }
+    public static List<PersonalityNodeDef> GetAll => DefDatabase<PersonalityNodeDef>.AllDefsListForReading;
 
     public static string GetDescription(PersonalityNode node, Pawn pawn)
     {

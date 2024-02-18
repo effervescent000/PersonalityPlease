@@ -1,5 +1,6 @@
 ﻿using RimWorld;
 using System.Collections.Generic;
+using Verse;
 
 namespace Personality;
 
@@ -15,10 +16,10 @@ public class IdeoProfile
         Ideo = ideo;
     }
 
-    public void MakeValues(List<PersonalityNodeDef> nodeDefs = null)
+    public void MakeValues()
     {
         Values.Clear();
-        nodeDefs ??= PersonalityHelper.GetAll;
+        List<PersonalityNodeDef> nodeDefs = PersonalityHelper.GetAll;
 
         // initialize Values
         foreach (PersonalityNodeDef def in nodeDefs)
@@ -31,11 +32,11 @@ public class IdeoProfile
         {
             Dictionary<string, float> preceptVals = PreceptLedStore.GetValue(precept.def.defName);
 
-            foreach (string key in Values.Keys)
+            foreach (var def in nodeDefs)
             {
-                if (preceptVals.TryGetValue(key, out float value))
+                if (preceptVals != null && preceptVals.TryGetValue(def.defName, out float value))
                 {
-                    Values[key] += value * 2f;
+                    Values[def.defName] += value * 2f;
                 }
             }
         }

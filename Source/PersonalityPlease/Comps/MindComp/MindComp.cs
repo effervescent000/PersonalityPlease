@@ -21,6 +21,7 @@ public class MindComp : ThingComp
 
     public override void PostSpawnSetup(bool respawningAfterLoad)
     {
+        Log.Message("In PostSpawnSetup for mind comp");
         mind = new(parent as Pawn);
         mind.Initialize();
         mind.ApplyAdjustments();
@@ -43,6 +44,16 @@ public class MindComp : ThingComp
                 }
             }
         }
+        try
+        {
+            ideoFeelings = new(parent as Pawn);
+            ideoFeelings.Initialize();
+        }
+        catch { }
+    }
+
+    public void Notify_IdeoProfileSetupDone()
+    {
         ideoFeelings = new(parent as Pawn);
         ideoFeelings.Initialize();
     }

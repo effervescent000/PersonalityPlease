@@ -9,18 +9,34 @@ public class IdeoProfileComp : GameComponent
 {
     private readonly HashSet<IdeoProfile> profiles = new();
 
-    public override void LoadedGame()
+    public IdeoProfileComp(Game _)
     {
-        base.LoadedGame();
+    }
 
+    public override void FinalizeInit()
+    {
+        Log.Message("In IdeoProfileComp FinalizeInit");
         List<PersonalityNodeDef> personalityNodeDefs = PersonalityHelper.GetAll;
+        if (personalityNodeDefs == null)
+        {
+            Log.Warning("personalityNodeDefs is null while trying to initialize ideo profiles");
+        }
 
         List<Ideo> ideos = Find.IdeoManager.IdeosListForReading;
         foreach (Ideo ideo in ideos)
         {
             IdeoProfile profile = new(ideo);
-            profile.MakeValues(personalityNodeDefs);
+            profile.MakeValues();
             profiles.Add(profile);
+        }
+        List<Pawn> pawnsToNotify = (from p in Find.AnyPlayerHomeMap.mapPawns.AllPawnsSpawned
+                                    where p.def.defName == "Human"
+                                    select p).ToList();
+
+        foreach (var p in pawnsToNotify)
+        {
+            MindComp mind = p.GetComp<MindComp>();
+            mind.Notify_IdeoProfileSetupDone();
         }
     }
 
