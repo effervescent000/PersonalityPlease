@@ -53,6 +53,7 @@
     <Compile Include="Comps\MindComp\Mind.cs" />
     <Compile Include="Comps\MindComp\MindComp.cs" />
     <Compile Include="GUI\ITab_Pawn_Mind.cs" />
+    <Compile Include="GUI\MindCardUtility.cs" />
     <Compile Include="GUI\UIComponents.cs" />
     <Compile Include="HarmonyPatches\UIPatches\DrawPawnCertainty.cs" />
     <Compile Include="HarmonyPatches\HarmonyStartup.cs" />

@@ -2,6 +2,7 @@
 <Defs>
   <Personality.PersonalityNodeDef>
     <defName>Rationality</defName>
+    <label>Rationality</label>
     <highDescription>{PAWN_nameDef} is more likely to think things through than make emotional decisions. On the other hand, {PAWN_pronoun} is less in tune with {PAWN_possessive} emotions and may struggle to articulate them.</highDescription>
     <lowDescription>{PAWN_nameDef} works on vibes. {PAWN_pronoun}'s worse at things requiring logical thought, but handles {PAWN_possessive} emotions better and has a better read on people.</lowDescription>
     <highLabel>rational</highLabel>
@@ -46,6 +47,7 @@
   </Personality.PersonalityNodeDef>
   <Personality.PersonalityNodeDef>
     <defName>Assertiveness</defName>
+    <label>Assertiveness</label>
     <highDescription>{PAWN_nameDef} gives voice to their needs and opinions.</highDescription>
     <lowDescription>{PAWN_nameDef} feels uncomfortable sticking up for themselves.</lowDescription>
     <highLabel>outspoken</highLabel>
@@ -75,6 +77,7 @@
   </Personality.PersonalityNodeDef>
   <Personality.PersonalityNodeDef>
     <defName>Compassion</defName>
+    <label>Compassion</label>
     <highDescription>{PAWN_nameDef} is in tune with the emotions of others. {PAWN_pronoun} prioritizes kindness and helping others.</highDescription>
     <lowDescription>{PAWN_nameDef}'s first priority is {PAWN_possessive} own wellbeing. {PAWN_pronoun} will not go out of their way to help someone.</lowDescription>
     <highLabel>empathetic</highLabel>
@@ -162,6 +165,7 @@
   </Personality.PersonalityNodeDef>
   <Personality.PersonalityNodeDef>
     <defName>Ambition</defName>
+    <label>Ambition</label>
     <highDescription>{PAWN_nameDef} has a strong internal motivation to improve {PAWN_objective}self and {PAWN_possessive} colony.</highDescription>
     <lowDescription>{PAWN_nameDef} is happy with how things are, and doesn't have much motivation to change it.</lowDescription>
     <highLabel>driven</highLabel>
@@ -217,6 +221,7 @@
   </Personality.PersonalityNodeDef>
   <Personality.PersonalityNodeDef>
     <defName>Meticulousness</defName>
+    <label>Meticulousness</label>
     <highDescription>{PAWN_nameDef} is thorough in everything they do. Unfortunately, they put a lot of stress on themselves because of this.</highDescription>
     <lowDescription>{PAWN_nameDef} cuts corners. {PAWN_possessive} work is generally a bit lower quality, but {PAWN_pronoun} doesn't get stressed out over it.</lowDescription>
     <highLabel>meticulous</highLabel>
@@ -267,6 +272,7 @@
   </Personality.PersonalityNodeDef>
   <Personality.PersonalityNodeDef MayRequire="Ludeon.RimWorld.Ideology">
     <defName>Lawfulness</defName>
+    <label>Lawfulness</label>
     <highDescription>{PAWN_nameDef} cares a lot about rules. {PAWN_pronoun} is very unlikely to break the precepts of {PAWN_possessive} ideoligion.</highDescription>
     <lowDescription>{PAWN_nameDef} does what seems right in the moment. {PAWN_pronoun} may break the precepts of {PAWN_possessive} ideoligion if it feels appropriate.</lowDescription>
     <lowLabel>chaotic</lowLabel>

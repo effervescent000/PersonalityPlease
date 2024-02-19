@@ -1,6 +1,7 @@
 ﻿#nullable enable
 
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Verse;
@@ -81,7 +82,7 @@ public class PersonalityNode : IExposable
             }
         }
 
-        adjustedRating = Mathf.Clamp(adjustedRating, -1, 1);
+        adjustedRating = (float)Math.Round(Mathf.Clamp(adjustedRating, -1, 1), 2);
     }
 
     public void ExposeData()

@@ -1,6 +1,4 @@
-﻿#nullable enable
-
-using RimWorld;
+﻿using RimWorld;
 using System.Collections.Generic;
 using UnityEngine;
 using Verse;
@@ -18,37 +16,10 @@ public class ITab_Pawn_Mind : ITab
 
     protected override void FillTab()
     {
-        Pawn? pawn = PawnToDisplay;
+        Pawn pawn = PawnToDisplay;
         if (pawn != null)
         {
-            MindComp comp = PersonalityHelper.Comp(pawn);
-
-            Rect rect = new Rect(0f, 0f, size.x, size.y).ContractedBy(10f);
-
-            Widgets.BeginGroup(rect);
-
-            if (comp != null)
-            {
-                Rect personalityRect = new(rect.x, rect.y, size.x * .8f, size.y * .8f);
-                float topPadding = 20f;
-
-                Dictionary<string, PersonalityNode> nodes = comp.Mind.nodes;
-
-                int i = 0;
-                foreach (PersonalityNode node in nodes.Values)
-                {
-                    Text.Font = GameFont.Small;
-                    GUI.color = Color.white;
-                    string label = node.def.defName;
-                    float textHeight = Text.CalcHeight(label, 250f);
-                    Rect innerRect = new(0f, (personalityRect.y + textHeight) * i + topPadding, 150f, textHeight);
-                    Widgets.Label(innerRect, label);
-                    Rect lineRect = new(innerRect.xMax, (personalityRect.y + textHeight) * i + topPadding, 100f, textHeight);
-                    UIComponents.LineWithIndicator(lineRect, value: (node.AdjustedRating + 1) / 2, text: node.AdjustedRating.ToString(), tooltip: PersonalityHelper.GetDescription(node, pawn));
-                    i++;
-                }
-            }
-            Widgets.EndGroup();
+            MindCardUtility.DrawMindCard(pawn, size);
         }
     }
 
@@ -56,7 +27,7 @@ public class ITab_Pawn_Mind : ITab
     {
         get
         {
-            Pawn? pawn = PawnToDisplay;
+            Pawn pawn = PawnToDisplay;
             if (pawn != null && pawn.def.defName == "Human")
             {
                 return true;
@@ -65,7 +36,7 @@ public class ITab_Pawn_Mind : ITab
         }
     }
 
-    private Pawn? PawnToDisplay
+    private Pawn PawnToDisplay
     {
         get
         {

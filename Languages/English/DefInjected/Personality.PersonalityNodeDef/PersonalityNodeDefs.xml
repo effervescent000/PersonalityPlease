@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<LanguageData>
-  <Rationality.highLabel>rational</Rationality.highLabel>
-  <Rationality.lowLabel>emotional</Rationality.lowLabel>
-  <Rationality.highDescription>{PAWN_nameDef} is more likely to think things through than make emotional decisions. On the other hand, {PAWN_pronoun} is less in tune with {PAWN_possessive} emotions and may struggle to articulate them.</Rationality.highDescription>
-  <Rationality.lowDescription>{PAWN_nameDef} works on vibes. {PAWN_pronoun}'s worse at things requiring logical thought, but handles {PAWN_possessive} emotions better and has a better read on people.</Rationality.lowDescription>
-</LanguageData>

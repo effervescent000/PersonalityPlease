@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 using Verse;
 
 namespace Personality;
@@ -30,7 +31,7 @@ public class IdeoFeelingsTracker
     public void FindNaturalCertainty()
     {
         // for now just use ideo harmony but would like to have traits and personality modify this eventually
-        naturalCertainty = CurrentIdeoHarmony;
+        naturalCertainty = Mathf.Clamp01(CurrentIdeoHarmony);
     }
 
     public void Initialize()
