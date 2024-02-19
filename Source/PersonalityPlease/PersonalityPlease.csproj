@@ -44,8 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Comps\IdeoProfile\IdeoProfile.cs" />
-    <Compile Include="Comps\IdeoProfile\IdeoProfileComp.cs" />
+    <Compile Include="Comps\IdeoProfileComp\IdeoProfile.cs" />
+    <Compile Include="Comps\IdeoProfileComp\IdeoProfileComp.cs" />
     <Compile Include="Comps\MindComp\CompProperties_Psychology.cs" />
     <Compile Include="Comps\MindComp\IdeoFeelingsTracker.cs" />
     <Compile Include="Comps\MindComp\ModifierTracker.cs" />
@@ -54,6 +54,7 @@
     <Compile Include="Comps\MindComp\MindComp.cs" />
     <Compile Include="GUI\ITab_Pawn_Mind.cs" />
     <Compile Include="GUI\UIComponents.cs" />
+    <Compile Include="HarmonyPatches\UIPatches\DrawPawnCertainty.cs" />
     <Compile Include="HarmonyPatches\HarmonyStartup.cs" />
     <Compile Include="HarmonyPatches\IdeoTracker\Pawn_IdeoTracker.cs" />
     <Compile Include="HarmonyPatches\Interactions\Pawn_RelationsTracker.cs" />

@@ -28,4 +28,16 @@ public static class UIComponents
             TooltipHandler.TipRegion(tipRegionRect, tooltip);
         }
     }
+
+    public static void DrawNaturalCertainty(Pawn pawn, Rect certaintyRect)
+    {
+        MindComp comp = pawn.GetComp<MindComp>();
+        Widgets.DrawLineVertical(certaintyRect.x + comp.IdeoFeelings.NaturalCertainty * 100, certaintyRect.y, 30f);
+    }
+
+    public static string GetNewCertaintyTooltipText(Pawn pawn)
+    {
+        Log.Message("im in the new method");
+        return "test test";
+    }
 }

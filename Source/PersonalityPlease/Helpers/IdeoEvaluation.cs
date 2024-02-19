@@ -1,9 +1,5 @@
 ﻿using RimWorld;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Verse;
 
 namespace Personality;
@@ -24,11 +20,13 @@ public class IdeoEvaluation
         get
         {
             float total = 1f;
-            foreach (var node in mind.Mind.nodes.Values)
+            foreach (PersonalityNode node in mind.Mind.nodes.Values)
             {
                 float ideoValue = ideoProfile.Values[node.def.defName];
                 if (ideoValue == 0f) { continue; }
-                total -= Math.Abs(node.AdjustedRating - ideoValue);
+                float diff = Math.Abs(node.AdjustedRating - ideoValue);
+                if (diff < 0.25) { continue; }
+                total -= diff;
             }
             return total;
         }

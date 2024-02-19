@@ -15,12 +15,7 @@ public class IdeoProfileComp : GameComponent
 
     public override void FinalizeInit()
     {
-        Log.Message("In IdeoProfileComp FinalizeInit");
         List<PersonalityNodeDef> personalityNodeDefs = PersonalityHelper.GetAll;
-        if (personalityNodeDefs == null)
-        {
-            Log.Warning("personalityNodeDefs is null while trying to initialize ideo profiles");
-        }
 
         List<Ideo> ideos = Find.IdeoManager.IdeosListForReading;
         foreach (Ideo ideo in ideos)

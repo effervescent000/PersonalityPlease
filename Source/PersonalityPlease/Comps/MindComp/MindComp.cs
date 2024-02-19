@@ -16,12 +16,11 @@ public class MindComp : ThingComp
     public override void PostExposeData()
     {
         base.PostExposeData();
-        Scribe_Deep.Look(ref mind, "psyche", new object[] { parent as Pawn });
+        Scribe_Deep.Look(ref mind, "mind", new object[] { parent as Pawn });
     }
 
     public override void PostSpawnSetup(bool respawningAfterLoad)
     {
-        Log.Message("In PostSpawnSetup for mind comp");
         mind = new(parent as Pawn);
         mind.Initialize();
         mind.ApplyAdjustments();
