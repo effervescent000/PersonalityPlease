@@ -44,6 +44,32 @@
         <beginsAt>-0.25</beginsAt>
       </li>
     </statModifiers>
+    <preceptModifiers>
+      <li>
+        <preceptDef>Research_None</preceptDef>
+        <modifier>-0.2</modifier>
+      </li>
+      <li>
+        <preceptDef>Research_ExtremelySlow</preceptDef>
+        <modifier>-0.15</modifier>
+      </li>
+      <li>
+        <preceptDef>Research_VerySlow</preceptDef>
+        <modifier>-0.1</modifier>
+      </li>
+      <li>
+        <preceptDef>Research_Slow</preceptDef>
+        <modifier>-0.05</modifier>
+      </li>
+      <li>
+        <preceptDef>Research_Fast</preceptDef>
+        <modifier>0.05</modifier>
+      </li>
+      <li>
+        <preceptDef>Research_VeryFast</preceptDef>
+        <modifier>0.1</modifier>
+      </li>
+    </preceptModifiers>
   </Personality.PersonalityNodeDef>
   <Personality.PersonalityNodeDef>
     <defName>Assertiveness</defName>
@@ -140,6 +166,74 @@
       <li>
         <preceptDef>Bonding_Disapproved</preceptDef>
         <modifier>-0.07</modifier>
+      </li>
+      <li>
+        <preceptDef>Charity_Worthwhile</preceptDef>
+        <modifier>0.05</modifier>
+      </li>
+      <li>
+        <preceptDef>Charity_Important</preceptDef>
+        <modifier>0.1</modifier>
+      </li>
+      <li>
+        <preceptDef>Charity_Essential</preceptDef>
+        <modifier>0.2</modifier>
+      </li>
+      <li>
+        <preceptDef>Cannibalism_Abhorrent</preceptDef>
+        <modifier>0.1</modifier>
+      </li>
+      <li>
+        <preceptDef>Cannibalism_Horrible</preceptDef>
+        <modifier>0.05</modifier>
+      </li>
+      <li>
+        <preceptDef>Cannibalism_Disapproved</preceptDef>
+        <modifier>0</modifier>
+      </li>
+      <li>
+        <preceptDef>Cannibalism_Acceptable</preceptDef>
+        <modifier>-0.05</modifier>
+      </li>
+      <li>
+        <preceptDef>Cannibalism_Preferred</preceptDef>
+        <modifier>-0.1</modifier>
+      </li>
+      <li>
+        <preceptDef>Cannibalism_RequiredStrong</preceptDef>
+        <modifier>-0.15</modifier>
+      </li>
+      <li>
+        <preceptDef>Cannibalism_RequiredRavenous</preceptDef>
+        <modifier>-0.25</modifier>
+      </li>
+      <li>
+        <preceptDef>Corpses_DontCare</preceptDef>
+        <modifier>-0.1</modifier>
+      </li>
+      <li>
+        <preceptDef>OrganUse_Acceptable</preceptDef>
+        <modifier>-0.1</modifier>
+      </li>
+      <li>
+        <preceptDef>Slavery_Abhorrent</preceptDef>
+        <modifier>0.1</modifier>
+      </li>
+      <li>
+        <preceptDef>Slavery_Horrible</preceptDef>
+        <modifier>0</modifier>
+      </li>
+      <li>
+        <preceptDef>Slavery_Disapproved</preceptDef>
+        <modifier>-0.1</modifier>
+      </li>
+      <li>
+        <preceptDef>Slavery_Acceptable</preceptDef>
+        <modifier>-0.15</modifier>
+      </li>
+      <li>
+        <preceptDef>Slavery_Honorable</preceptDef>
+        <modifier>-0.2</modifier>
       </li>
     </preceptModifiers>
     <statModifiers>
@@ -305,6 +399,46 @@
       <li>
         <preceptDef>IdeoDiversity_Abhorrent</preceptDef>
         <modifier>0.25</modifier>
+      </li>
+      <li>
+        <preceptDef>Lovin_Prohibited</preceptDef>
+        <modifier>0.25</modifier>
+      </li>
+      <li>
+        <preceptDef>Lovin_Horrible</preceptDef>
+        <modifier>0.2</modifier>
+      </li>
+      <li>
+        <preceptDef>Lovin_SpouseOnly_Strict</preceptDef>
+        <modifier>0.15</modifier>
+      </li>
+      <li>
+        <preceptDef>Lovin_SpouseOnly_Moderate</preceptDef>
+        <modifier>0.1</modifier>
+      </li>
+      <li>
+        <preceptDef>Lovin_SpouseOnly_Mild</preceptDef>
+        <modifier>0.05</modifier>
+      </li>
+      <li>
+        <preceptDef>Lovin_FreeApproved</preceptDef>
+        <modifier>-0.1</modifier>
+      </li>
+      <li>
+        <preceptDef>DrugUse_Prohibited</preceptDef>
+        <modifier>0.15</modifier>
+      </li>
+      <li>
+        <preceptDef>DrugUse_MedicalOnly</preceptDef>
+        <modifier>0.05</modifier>
+      </li>
+      <li>
+        <preceptDef>DrugUse_MedicalOrSocial</preceptDef>
+        <modifier>-0.05</modifier>
+      </li>
+      <li>
+        <preceptDef>DrugUse_Essential</preceptDef>
+        <modifier>-0.15</modifier>
       </li>
     </preceptModifiers>
   </Personality.PersonalityNodeDef>

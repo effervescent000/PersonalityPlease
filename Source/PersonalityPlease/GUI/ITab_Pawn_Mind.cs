@@ -9,7 +9,7 @@ public class ITab_Pawn_Mind : ITab
 {
     public ITab_Pawn_Mind()
     {
-        size = new Vector2(400f, 400f);
+        size = new Vector2(700f, 400f);
         labelKey = "TabMind";
         tutorTag = "Mind";
     }

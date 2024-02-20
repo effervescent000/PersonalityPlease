@@ -36,7 +36,7 @@ public class IdeoProfile
             {
                 if (preceptVals != null && preceptVals.TryGetValue(def.defName, out float value))
                 {
-                    Values[def.defName] += value * 2f;
+                    Values[def.defName] += value * 3f;
                 }
             }
         }

@@ -60,6 +60,7 @@
     <Compile Include="HarmonyPatches\IdeoTracker\Pawn_IdeoTracker.cs" />
     <Compile Include="HarmonyPatches\Interactions\Pawn_RelationsTracker.cs" />
     <Compile Include="HarmonyPatches\Stats\StatWorker.cs" />
+    <Compile Include="Helpers\ColorHelper.cs" />
     <Compile Include="Helpers\CompatibilityHelper.cs" />
     <Compile Include="Helpers\IdeoEvaluation.cs" />
     <Compile Include="Helpers\IdeoHelper.cs" />

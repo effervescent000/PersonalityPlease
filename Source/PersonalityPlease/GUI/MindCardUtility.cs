@@ -25,17 +25,26 @@ public static class MindCardUtility
 
         Rect mainRect = new Rect(0f, 0f, size.x, size.y).ContractedBy(10f);
 
-        float leftWidth = 250f;
+        float colWidth = 250f;
 
         Widgets.BeginGroup(mainRect);
 
-        Rect ideoRect = new(mainRect.x, mainRect.y, leftWidth, 30f);
-        DrawCertaintyBar(pawn, mind, ideoRect);
+        Rect certaintyRect = new(mainRect.x, mainRect.y, colWidth, 30f);
+        DrawCertaintyBar(pawn, mind, certaintyRect);
 
         float personalityHeight = CalculatePersonalityHeight();
-        Rect personalitySectionRect = DrawSection(mainRect.x, mainRect.y + ideoRect.height + 10f, leftWidth, personalityHeight);
+        Rect personalitySectionRect = UIComponents.DrawSection(mainRect.x, mainRect.y + certaintyRect.height + 10f, colWidth, personalityHeight);
 
         DrawPersonality(mind, personalitySectionRect);
+
+        // add checks here for ideo being active and eventually, settings for ideo integration with mod
+        IdeoProfileComp ideoProfileComp = Current.Game.GetComponent<IdeoProfileComp>();
+
+        Rect ideoRect = new(personalitySectionRect.xMax + 20f, personalitySectionRect.y, colWidth * .35f, personalityHeight);
+        DrawIdeoProfile(ideoProfileComp.GetProfileFor(pawn.Ideo), ideoRect.ContractedBy(10f));
+
+        Rect ideoIconRect = new(ideoRect.center.x - certaintyRect.height * .5f, certaintyRect.y, certaintyRect.height, certaintyRect.height);
+        pawn.Ideo.DrawIcon(ideoIconRect);
 
         Widgets.EndGroup();
     }
@@ -54,13 +63,27 @@ public static class MindCardUtility
         Widgets.DrawLineVertical(certaintyRect.x + comp.IdeoFeelings.NaturalCertainty * 100, certaintyRect.y - lineHeight * .15f, lineHeight);
     }
 
+    public static void DrawIdeoProfile(IdeoProfile profile, Rect rect)
+    {
+        int i = 0;
+        Text.Font = GameFont.Tiny;
+        foreach (var kvp in profile.Values)
+        {
+            float nodeHeight = rect.height * (float)(1f / profile.Values.Count);
+            Rect nodeRect = new(rect.x, rect.y + (nodeHeight * i) - 5f, rect.width, nodeHeight);
+            Rect lineRect = new(nodeRect.x, nodeRect.y - nodeHeight * .2f, nodeRect.width, nodeRect.height);
+            UIComponents.DrawLineWithIndicator(lineRect, (kvp.Value + 1) / 2f, text: kvp.Value.ToString());
+
+            i++;
+        }
+    }
+
     public static void DrawPersonality(MindComp mind, Rect rect)
     {
         var nodes = mind.Mind.nodes.Values.ToList();
         for (int i = 0; i < nodes.Count; i++)
         {
             Text.Font = GameFont.Small;
-            Log.Message($"nodes: {nodes.Count}");
             float nodeHeight = rect.height * (float)(1f / nodes.Count);
             Rect nodeRect = new(rect.x, rect.y + (nodeHeight * i) + 5f, rect.width, nodeHeight);
             Rect labelRect = new(nodeRect.x, nodeRect.y, nodeRect.width * .55f, nodeRect.height);
@@ -68,15 +91,8 @@ public static class MindCardUtility
 
             Text.Font = GameFont.Tiny;
             Rect lineRect = new(nodeRect.width * .6f, nodeRect.y - nodeHeight * .2f, nodeRect.width * .45f, nodeRect.height);
-            UIComponents.LineWithIndicator(lineRect, (nodes[i].AdjustedRating + 1) / 2f, text: nodes[i].AdjustedRating.ToString());
+            UIComponents.DrawLineWithIndicator(lineRect, (nodes[i].AdjustedRating + 1) / 2f, text: nodes[i].AdjustedRating.ToString());
         }
-    }
-
-    public static Rect DrawSection(float x, float y, float width, float height)
-    {
-        Rect sectionRect = new(x, y, width, height);
-        Widgets.DrawBoxSolidWithOutline(sectionRect, new Color(.2f, .2f, .2f), Color.grey);
-        return new Rect(sectionRect).ContractedBy(10f);
     }
 
     public static float CalculatePersonalityHeight()

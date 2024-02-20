@@ -6,12 +6,12 @@ namespace Personality;
 
 public class IdeoEvaluation
 {
-    private readonly MindComp mind;
+    private readonly MindComp comp;
     private readonly IdeoProfile ideoProfile;
 
     public IdeoEvaluation(Pawn pawn, Ideo ideo)
     {
-        mind = pawn.GetComp<MindComp>();
+        comp = pawn.GetComp<MindComp>();
         ideoProfile = Current.Game.GetComponent<IdeoProfileComp>()?.GetProfileFor(ideo);
     }
 
@@ -20,13 +20,14 @@ public class IdeoEvaluation
         get
         {
             float total = 1f;
-            foreach (PersonalityNode node in mind.Mind.nodes.Values)
+            foreach (PersonalityNode node in comp.Mind.nodes.Values)
             {
                 float ideoValue = ideoProfile.Values[node.def.defName];
                 if (ideoValue == 0f) { continue; }
                 float diff = Math.Abs(node.AdjustedRating - ideoValue);
-                if (diff < 0.25) { continue; }
-                total -= diff;
+                if (diff < 0.5f) { continue; }
+                Log.Message($"found ideo diff of {diff}: pawn's value {node.AdjustedRating}, ideoValue: {ideoValue}");
+                total -= diff * .5f;
             }
             return total;
         }
