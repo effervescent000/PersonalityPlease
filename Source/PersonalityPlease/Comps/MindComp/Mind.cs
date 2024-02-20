@@ -32,10 +32,10 @@ public class Mind : IExposable
 
         foreach (PersonalityNode node in nodes.Values)
         {
-            if (node.BaseRating < -1)
+            if (node.BaseRating.NakedValue < -1)
             {
                 float r = random.Next(-100, 100);
-                node.BaseRating = r / 100f;
+                node.BaseRating.SetValue(r / 100f);
             }
         }
     }

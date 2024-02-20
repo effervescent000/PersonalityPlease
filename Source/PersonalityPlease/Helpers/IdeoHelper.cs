@@ -15,9 +15,4 @@ public static class IdeoHelper
         IdeoEvaluation eval = new(pawn, ideo);
         return eval.FinalScore;
     }
-
-    //public static float GetCompatibilityWithCurrentIdeo(this Pawn pawn)
-    //{
-    //    return GetCompatibility(pawn, pawn.Ideo);
-    //}
 }

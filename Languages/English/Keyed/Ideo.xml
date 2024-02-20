@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+
+  <NaturalCertaintyGlobal>Pawns have a natural level of certainty that they tend to gravitate towards, based on how well their ideoligion suits their personality and values.</NaturalCertaintyGlobal>
+  <NaturalCertaintyOfPawn>{PAWN_nameDef}'s natural certainty is {0}.</NaturalCertaintyOfPawn>
+
+</LanguageData>

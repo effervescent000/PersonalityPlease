@@ -67,6 +67,7 @@
     <Compile Include="Helpers\PersonalityComparison.cs" />
     <Compile Include="Helpers\PersonalityHelper.cs" />
     <Compile Include="Helpers\PreceptLedStore.cs" />
+    <Compile Include="Helpers\SemiClampedValue.cs" />
     <Compile Include="Personality\PersonalityNode.cs" />
     <Compile Include="Personality\PersonalityNodeDef.cs" />
     <Compile Include="Personality\PersonalityNodePreceptModifier.cs" />

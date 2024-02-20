@@ -12,22 +12,14 @@ public class PersonalityNode : IExposable
 {
     public PersonalityNodeDef def;
     private readonly Pawn pawn;
-    private float baseRating = -2f;
-    private float adjustedRating = 0f;
 
-#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
-
-    public PersonalityNode()
-
-    {
-    }
-
-#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
+    public readonly SemiClampedValue BaseRating = new(-2f);
+    public readonly SemiClampedValue AdjustedRating = new(0f);
 
     public PersonalityNode(PersonalityNodeDef def, float baseRating, Pawn pawn)
     {
         this.def = def;
-        this.baseRating = baseRating;
+        this.BaseRating.SetValue(baseRating);
         this.pawn = pawn;
     }
 
@@ -37,14 +29,7 @@ public class PersonalityNode : IExposable
         this.pawn = pawn;
     }
 
-    public float AdjustedRating
-    {
-        get => adjustedRating; set => adjustedRating = value;
-    }
-
-    public float BaseRating { get => baseRating; set => baseRating = value; }
-
-    public override string ToString() => $"{def.defName} @ {baseRating}";
+    public override string ToString() => $"{def.defName} @ {BaseRating}";
 
     public void ModifyRating()
     {
@@ -53,7 +38,7 @@ public class PersonalityNode : IExposable
 
     public void ModifyRating(Pawn pawn)
     {
-        adjustedRating = baseRating;
+        AdjustedRating.SetValue(BaseRating.Value);
 
         foreach (Trait trait in pawn.story.traits.allTraits)
         {
@@ -63,7 +48,7 @@ public class PersonalityNode : IExposable
             {
                 if (result.TryGetValue(def.defName, out float value))
                 {
-                    adjustedRating += value;
+                    AdjustedRating.OffsetValue(value);
                 }
             }
         }
@@ -77,17 +62,15 @@ public class PersonalityNode : IExposable
                 if (result.TryGetValue(def.defName, out float value))
                 {
                     //Log.Message($"Adjusting personality node {def.defName} based on precept {precept.def.defName}");
-                    adjustedRating += value;
+                    AdjustedRating.OffsetValue(value);
                 }
             }
         }
-
-        adjustedRating = (float)Math.Round(Mathf.Clamp(adjustedRating, -1, 1), 2);
     }
 
     public void ExposeData()
     {
         Scribe_Defs.Look(ref def, "def");
-        Scribe_Values.Look(ref baseRating, "baseRating");
+        Scribe_Values.Look(ref BaseRating.NakedValue, "baseRating");
     }
 }

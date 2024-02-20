@@ -22,12 +22,12 @@ public class IdeoEvaluation
             float total = 1f;
             foreach (PersonalityNode node in comp.Mind.nodes.Values)
             {
-                float ideoValue = ideoProfile.Values[node.def.defName];
+                float ideoValue = ideoProfile.Values[node.def.defName].Value;
                 if (ideoValue == 0f) { continue; }
-                float diff = Math.Abs(node.AdjustedRating - ideoValue);
+                float diff = Math.Abs(node.AdjustedRating.Value - ideoValue);
                 if (diff < 0.5f) { continue; }
                 Log.Message($"found ideo diff of {diff}: pawn's value {node.AdjustedRating}, ideoValue: {ideoValue}");
-                total -= diff * .5f;
+                total -= diff * .33f;
             }
             return total;
         }

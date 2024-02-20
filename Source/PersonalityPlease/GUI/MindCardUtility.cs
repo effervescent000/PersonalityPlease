@@ -55,12 +55,19 @@ public static class MindCardUtility
         Rect barRect = rect.ContractedBy(3f);
         Widgets.FillableBar(barRect, pawn.ideo.Certainty);
         DrawNaturalCertainty(comp, barRect);
+        TooltipHandler.TipRegion(rect, () => GetCertaintyTipText(pawn, comp), 24521558);
+    }
+
+    public static string GetCertaintyTipText(Pawn pawn, MindComp mind)
+    {
+        string tip = "NaturalCertaintyGlobal".Translate() + " " + "NaturalCertaintyOfPawn".Translate(mind.IdeoFeelings.NaturalCertainty.ToStringPercent(), pawn.Named("PAWN"));
+        return tip;
     }
 
     public static void DrawNaturalCertainty(MindComp comp, Rect certaintyRect)
     {
         float lineHeight = certaintyRect.height * 1.5f;
-        Widgets.DrawLineVertical(certaintyRect.x + comp.IdeoFeelings.NaturalCertainty * 100, certaintyRect.y - lineHeight * .15f, lineHeight);
+        Widgets.DrawLineVertical(certaintyRect.x + comp.IdeoFeelings.NaturalCertainty * certaintyRect.width, certaintyRect.y - lineHeight * .15f, lineHeight);
     }
 
     public static void DrawIdeoProfile(IdeoProfile profile, Rect rect)
@@ -72,7 +79,7 @@ public static class MindCardUtility
             float nodeHeight = rect.height * (float)(1f / profile.Values.Count);
             Rect nodeRect = new(rect.x, rect.y + (nodeHeight * i) - 5f, rect.width, nodeHeight);
             Rect lineRect = new(nodeRect.x, nodeRect.y - nodeHeight * .2f, nodeRect.width, nodeRect.height);
-            UIComponents.DrawLineWithIndicator(lineRect, (kvp.Value + 1) / 2f, text: kvp.Value.ToString());
+            UIComponents.DrawLineWithIndicator(lineRect, (kvp.Value.Value + 1) / 2f, text: kvp.Value.Value.ToString());
 
             i++;
         }
@@ -91,7 +98,7 @@ public static class MindCardUtility
 
             Text.Font = GameFont.Tiny;
             Rect lineRect = new(nodeRect.width * .6f, nodeRect.y - nodeHeight * .2f, nodeRect.width * .45f, nodeRect.height);
-            UIComponents.DrawLineWithIndicator(lineRect, (nodes[i].AdjustedRating + 1) / 2f, text: nodes[i].AdjustedRating.ToString());
+            UIComponents.DrawLineWithIndicator(lineRect, (nodes[i].AdjustedRating.Value + 1) / 2f, text: nodes[i].AdjustedRating.Value.ToString());
         }
     }
 

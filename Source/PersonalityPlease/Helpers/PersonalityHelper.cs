@@ -44,11 +44,11 @@ public static class PersonalityHelper
 
     public static string GetDescription(PersonalityNode node, Pawn pawn)
     {
-        if (node.AdjustedRating >= 0.25)
+        if (node.AdjustedRating.Value >= 0.25f)
         {
             return node.def.highDescription.Translate(pawn.Named("PAWN"));
         }
-        if (node.AdjustedRating <= -0.25)
+        if (node.AdjustedRating.Value <= -0.25f)
         {
             return node.def.lowDescription.Translate(pawn.Named("PAWN"));
         }
