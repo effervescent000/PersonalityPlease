@@ -36,8 +36,8 @@ public class MindComp : ThingComp
                 {
                     ModifierValues modValues = new()
                     {
-                        Offset = modifier.isFactor ? 0f : modifier.GetValueAt(node.AdjustedRating.Value),
-                        Factor = modifier.isFactor ? modifier.GetValueAt(node.AdjustedRating.Value) : 1f
+                        Offset = modifier.isFactor ? 0f : modifier.GetValueAt(node.FinalRating.Value),
+                        Factor = modifier.isFactor ? modifier.GetValueAt(node.FinalRating.Value) : 1f
                     };
                     modifierTracker.AppendValue(modifier.StatDef.defName, modValues);
                 }

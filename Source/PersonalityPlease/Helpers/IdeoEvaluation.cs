@@ -24,9 +24,9 @@ public class IdeoEvaluation
             {
                 float ideoValue = ideoProfile.Values[node.def.defName].Value;
                 if (ideoValue == 0f) { continue; }
-                float diff = Math.Abs(node.AdjustedRating.Value - ideoValue);
+                float diff = Math.Abs(node.PersonalRating.Value - ideoValue);
                 if (diff < 0.5f) { continue; }
-                Log.Message($"found ideo diff of {diff}: pawn's value {node.AdjustedRating}, ideoValue: {ideoValue}");
+                Log.Message($"found ideo diff of {diff}: pawn's value {node.PersonalRating}, ideoValue: {ideoValue}");
                 total -= diff * .33f;
             }
             return total;

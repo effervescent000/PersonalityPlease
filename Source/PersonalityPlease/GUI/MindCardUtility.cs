@@ -60,7 +60,12 @@ public static class MindCardUtility
 
     public static string GetCertaintyTipText(Pawn pawn, MindComp mind)
     {
-        string tip = "NaturalCertaintyGlobal".Translate() + " " + "NaturalCertaintyOfPawn".Translate(mind.IdeoFeelings.NaturalCertainty.ToStringPercent(), pawn.Named("PAWN"));
+        string tip = "NaturalCertaintyGlobal".Translate()
+            + "\n\n"
+            + "NaturalCertaintyOfPawn".Translate(mind.IdeoFeelings.NaturalCertainty.ToStringPercent(), pawn.Named("PAWN"))
+            + "\n\n"
+            + "CertaintyChange".Translate(pawn.Named("PAWN"));
+
         return tip;
     }
 
@@ -98,7 +103,7 @@ public static class MindCardUtility
 
             Text.Font = GameFont.Tiny;
             Rect lineRect = new(nodeRect.width * .6f, nodeRect.y - nodeHeight * .2f, nodeRect.width * .45f, nodeRect.height);
-            UIComponents.DrawLineWithIndicator(lineRect, (nodes[i].AdjustedRating.Value + 1) / 2f, text: nodes[i].AdjustedRating.Value.ToString());
+            UIComponents.DrawLineWithIndicator(lineRect, (nodes[i].FinalRating.Value + 1) / 2f, text: nodes[i].FinalRating.Value.ToString());
         }
     }
 

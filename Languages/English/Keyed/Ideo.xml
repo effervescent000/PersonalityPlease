@@ -3,5 +3,6 @@
 
   <NaturalCertaintyGlobal>Pawns have a natural level of certainty that they tend to gravitate towards, based on how well their ideoligion suits their personality and values.</NaturalCertaintyGlobal>
   <NaturalCertaintyOfPawn>{PAWN_nameDef}'s natural certainty is {0}.</NaturalCertaintyOfPawn>
+  <CertaintyChange>{PAWN_nameDef}'s certainty will rise or fall slightly each day based on whether {PAWN_possessive} certainty is higher or lower than {PAWN_possessive} natural certainty, as well as {PAWN_possessive} mood.</CertaintyChange>
 
 </LanguageData>

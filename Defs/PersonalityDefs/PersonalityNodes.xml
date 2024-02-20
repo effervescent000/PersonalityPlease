@@ -91,6 +91,10 @@
         <trait>Wimp</trait>
         <modifier>-0.25</modifier>
       </li>
+      <li>
+        <trait>Abrasive</trait>
+        <modifier>0.25</modifier>
+      </li>
     </traitModifiers>
     <statModifiers>
       <li>
@@ -100,6 +104,28 @@
         <beginsAt>0.25</beginsAt>
       </li>
     </statModifiers>
+    <preceptModifiers>
+      <li>
+        <preceptDef>IdeoDiversity_Exalted</preceptDef>
+        <modifier>0.2</modifier>
+      </li>
+      <li>
+        <preceptDef>IdeoDiversity_Respected</preceptDef>
+        <modifier>0.1</modifier>
+      </li>
+      <li>
+        <preceptDef>Apostasy_Abhorrent</preceptDef>
+        <modifier>-0.15</modifier>
+      </li>
+      <li>
+        <preceptDef>Apostasy_Horrible</preceptDef>
+        <modifier>-0.1</modifier>
+      </li>
+      <li>
+        <preceptDef>Apostasy_Disapproved</preceptDef>
+        <modifier>-0.05</modifier>
+      </li>
+    </preceptModifiers>
   </Personality.PersonalityNodeDef>
   <Personality.PersonalityNodeDef>
     <defName>Compassion</defName>
