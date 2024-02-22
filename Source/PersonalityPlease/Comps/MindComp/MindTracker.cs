@@ -1,15 +1,16 @@
-﻿using System;
+﻿using Personality.Core;
+using System;
 using System.Collections.Generic;
 using Verse;
 
 namespace Personality;
 
-public class Mind : IExposable
+public class MindTracker : IExposable
 {
     private readonly Pawn pawn;
     public Dictionary<string, PersonalityNode> nodes;
 
-    public Mind(Pawn pawn)
+    public MindTracker(Pawn pawn)
     {
         this.pawn = pawn;
     }
@@ -27,7 +28,7 @@ public class Mind : IExposable
             nodes.Add(def.defName, new PersonalityNode(def, pawn));
         }
 
-        int seed = PersonalityHelper.PawnSeed(pawn);
+        int seed = pawn.GetSeed();
         Random random = new(seed);
 
         foreach (PersonalityNode node in nodes.Values)

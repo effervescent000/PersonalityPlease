@@ -5,11 +5,11 @@ namespace Personality;
 
 public class MindComp : ThingComp
 {
-    private Mind mind;
+    private MindTracker mind;
     private ModifierTracker modifierTracker;
     private IdeoFeelingsTracker ideoFeelings;
 
-    public Mind Mind => mind;
+    public MindTracker Mind => mind;
     public ModifierTracker Modifiers => modifierTracker;
     public IdeoFeelingsTracker IdeoFeelings => ideoFeelings;
 

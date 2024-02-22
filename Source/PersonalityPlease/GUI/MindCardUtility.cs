@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 using Verse;
 
@@ -17,6 +14,27 @@ public static class MindCardUtility
     //[TweakValue("AAAtest", 0f, 3f)]
     //private static float naturalCertLinePlacementAdjusterMulti = .5f;
 
+    private const float CERTAINTY_HEIGHT = 30f;
+    private const float COL_WIDTH = 250f;
+
+    //[TweakValue("AAAtest", 10f, 30f)]
+    private const float NODE_HEIGHT = 20f;
+
+    public static Vector2 GetMindCardSize()
+    {
+        float width = 250f;
+        float height = CalculatePersonalityHeight();
+
+        if (ModsConfig.IdeologyActive)
+        {
+            height += CERTAINTY_HEIGHT;
+            width += COL_WIDTH * .35f;
+        }
+
+        // add a little extra for padding
+        return new Vector2(width * 1.2f, height * 1.2f);
+    }
+
     public static void DrawMindCard(Pawn pawn, Vector2 size)
     {
         MindComp mind = pawn.GetComp<MindComp>();
@@ -25,28 +43,39 @@ public static class MindCardUtility
 
         Rect mainRect = new Rect(0f, 0f, size.x, size.y).ContractedBy(10f);
 
-        float colWidth = 250f;
-
         Widgets.BeginGroup(mainRect);
 
-        Rect certaintyRect = new(mainRect.x, mainRect.y, colWidth, 30f);
-        DrawCertaintyBar(pawn, mind, certaintyRect);
-
         float personalityHeight = CalculatePersonalityHeight();
-        Rect personalitySectionRect = UIComponents.DrawSection(mainRect.x, mainRect.y + certaintyRect.height + 10f, colWidth, personalityHeight);
+        Rect personalitySectionRect = UIComponents.DrawSection(mainRect.x, ModsConfig.IdeologyActive ? mainRect.y + CERTAINTY_HEIGHT + 10f : mainRect.y, COL_WIDTH, personalityHeight);
 
         DrawPersonality(mind, personalitySectionRect);
 
-        // add checks here for ideo being active and eventually, settings for ideo integration with mod
-        IdeoProfileComp ideoProfileComp = Current.Game.GetComponent<IdeoProfileComp>();
+        if (ModsConfig.IdeologyActive)
+        {
+            Rect certaintyRect = new(mainRect.x, mainRect.y, COL_WIDTH, CERTAINTY_HEIGHT);
+            DrawCertaintyBar(pawn, mind, certaintyRect);
 
-        Rect ideoRect = new(personalitySectionRect.xMax + 20f, personalitySectionRect.y, colWidth * .35f, personalityHeight);
-        DrawIdeoProfile(ideoProfileComp.GetProfileFor(pawn.Ideo), ideoRect.ContractedBy(10f));
+            IdeoProfileComp ideoProfileComp = Current.Game.GetComponent<IdeoProfileComp>();
 
-        Rect ideoIconRect = new(ideoRect.center.x - certaintyRect.height * .5f, certaintyRect.y, certaintyRect.height, certaintyRect.height);
-        pawn.Ideo.DrawIcon(ideoIconRect);
+            Rect ideoRect = new(personalitySectionRect.xMax + 20f, personalitySectionRect.y, COL_WIDTH * .35f, personalityHeight);
+            DrawIdeoProfile(ideoProfileComp.GetProfileFor(pawn.Ideo), ideoRect.ContractedBy(10f));
+
+            Rect ideoIconRect = new(ideoRect.center.x - certaintyRect.height * .5f, certaintyRect.y, certaintyRect.height, certaintyRect.height);
+            pawn.Ideo.DrawIcon(ideoIconRect);
+        }
+
+        // draw attraction
+        if (Settings.RomanceModuleActive)
+        {
+            DrawAttraction();
+        }
 
         Widgets.EndGroup();
+    }
+
+    public static void DrawAttraction()
+    {
+        return;
     }
 
     public static void DrawCertaintyBar(Pawn pawn, MindComp comp, Rect rect)
@@ -79,7 +108,7 @@ public static class MindCardUtility
     {
         int i = 0;
         Text.Font = GameFont.Tiny;
-        foreach (var kvp in profile.Values)
+        foreach (KeyValuePair<string, SemiClampedValue> kvp in profile.Values)
         {
             float nodeHeight = rect.height * (float)(1f / profile.Values.Count);
             Rect nodeRect = new(rect.x, rect.y + (nodeHeight * i) - 5f, rect.width, nodeHeight);
@@ -92,7 +121,7 @@ public static class MindCardUtility
 
     public static void DrawPersonality(MindComp mind, Rect rect)
     {
-        var nodes = mind.Mind.nodes.Values.ToList();
+        List<PersonalityNode> nodes = mind.Mind.nodes.Values.ToList();
         for (int i = 0; i < nodes.Count; i++)
         {
             Text.Font = GameFont.Small;
@@ -110,9 +139,9 @@ public static class MindCardUtility
     public static float CalculatePersonalityHeight()
     {
         float height = 0;
-        foreach (var node in PersonalityHelper.GetAll)
+        foreach (PersonalityNodeDef node in PersonalityHelper.GetAll)
         {
-            height += Text.CalcHeight(node.defName, 100f) * 1.5f;
+            height += NODE_HEIGHT * 1.5f;
         }
         return height;
     }

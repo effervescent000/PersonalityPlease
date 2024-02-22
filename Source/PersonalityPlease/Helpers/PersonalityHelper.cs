@@ -31,13 +31,6 @@ public static class PersonalityHelper
         }
     }
 
-    public static int PawnSeed(Pawn pawn)
-    {
-        int thingID = pawn.thingIDNumber;
-        int worldID = Find.World.info.Seed;
-        return Gen.HashCombineInt(thingID, worldID);
-    }
-
     public static MindComp Comp(Pawn pawn) => pawn.GetComp<MindComp>();
 
     public static List<PersonalityNodeDef> GetAll => DefDatabase<PersonalityNodeDef>.AllDefsListForReading;

@@ -1,6 +1,4 @@
 ﻿using RimWorld;
-using System.Collections.Generic;
-using UnityEngine;
 using Verse;
 
 namespace Personality;
@@ -9,7 +7,7 @@ public class ITab_Pawn_Mind : ITab
 {
     public ITab_Pawn_Mind()
     {
-        size = new Vector2(700f, 400f);
+        size = MindCardUtility.GetMindCardSize();
         labelKey = "TabMind";
         tutorTag = "Mind";
     }
