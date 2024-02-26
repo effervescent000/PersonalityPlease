@@ -8,6 +8,11 @@ public static class PersonalityHelper
 {
     public static TraitLedStore traitLedStore = new();
 
+    public static Dictionary<string, PersonalityNodeDef> NodeMapping = new()
+    {
+        { "PP_Purity", PersonalityDefOf.PP_Purity }
+    };
+
     private static List<PersonalityNodeDef> PersonalityNodeDefList => DefDatabase<PersonalityNodeDef>.AllDefsListForReading;
 
     static PersonalityHelper()

@@ -60,10 +60,10 @@
     <Compile Include="GUI\ITab_Pawn_Mind.cs" />
     <Compile Include="GUI\MindCardUtility.cs" />
     <Compile Include="GUI\UIComponents.cs" />
-    <Compile Include="HarmonyPatches\HarmonyStartup.cs" />
-    <Compile Include="HarmonyPatches\IdeoTracker\Pawn_IdeoTracker.cs" />
-    <Compile Include="HarmonyPatches\Interactions\Pawn_RelationsTracker.cs" />
-    <Compile Include="HarmonyPatches\Stats\StatWorker.cs" />
+    <Compile Include="HarmonyPatches\Pawn_IdeoTracker.cs" />
+    <Compile Include="HarmonyPatches\Pawn_RelationsTracker.cs" />
+    <Compile Include="HarmonyPatches\PPCore\PatchGetPersonalityNodeRating.cs" />
+    <Compile Include="HarmonyPatches\StatWorker.cs" />
     <Compile Include="Helpers\ColorHelper.cs" />
     <Compile Include="Helpers\CompatibilityHelper.cs" />
     <Compile Include="Helpers\IdeoEvaluation.cs" />
