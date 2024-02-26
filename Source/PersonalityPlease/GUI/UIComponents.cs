@@ -10,7 +10,7 @@ namespace Personality;
 
 public static class UIComponents
 {
-    public static void LineWithIndicator(Rect rect, float value, int height = 3, string text = null, string tooltip = null)
+    public static void DrawLineWithIndicator(Rect rect, float value, int height = 3, string text = null, string tooltip = null)
     {
         text ??= value.ToString();
         Rect lineRect = new(rect.x, rect.y + (rect.yMax - rect.yMin) / 2f, rect.width, height);
@@ -27,5 +27,14 @@ public static class UIComponents
             Rect tipRegionRect = new(rect.x, rect.yMin - labelSize.y, lineRect.width, labelSize.y + rect.height);
             TooltipHandler.TipRegion(tipRegionRect, tooltip);
         }
+    }
+
+    public static Rect DrawSection(float x, float y, float width, float height, Color? bgColor = null, Color? borderColor = null)
+    {
+        bgColor ??= ColorHelper.DarkGray;
+        borderColor ??= ColorHelper.LightGray;
+        Rect sectionRect = new(x, y, width, height);
+        Widgets.DrawBoxSolidWithOutline(sectionRect, (Color)bgColor, (Color)borderColor);
+        return new Rect(sectionRect).ContractedBy(10f);
     }
 }

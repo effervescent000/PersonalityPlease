@@ -1,6 +1,7 @@
 ﻿#nullable enable
 
 using RimWorld;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Verse;
@@ -11,22 +12,20 @@ public class PersonalityNode : IExposable
 {
     public PersonalityNodeDef def;
     private readonly Pawn pawn;
-    private float baseRating = -2f;
-    private float adjustedRating = 0f;
 
-#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
+    // the base rating is the raw roll
+    public readonly SemiClampedValue BaseRating = new(-2f);
 
-    public PersonalityNode()
+    // the personal rating is the rating including traits (and maybe other things eventually?)
+    public readonly SemiClampedValue PersonalRating = new(0f);
 
-    {
-    }
-
-#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
+    // the final rating includes changes from ideo
+    public readonly SemiClampedValue FinalRating = new(0f);
 
     public PersonalityNode(PersonalityNodeDef def, float baseRating, Pawn pawn)
     {
         this.def = def;
-        this.baseRating = baseRating;
+        this.BaseRating.SetValue(baseRating);
         this.pawn = pawn;
     }
 
@@ -36,14 +35,13 @@ public class PersonalityNode : IExposable
         this.pawn = pawn;
     }
 
-    public float AdjustedRating
-    {
-        get => adjustedRating; set => adjustedRating = value;
-    }
+    public override string ToString() => $"{def.defName} @ {BaseRating}";
 
-    public float BaseRating { get => baseRating; set => baseRating = value; }
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
 
-    public override string ToString() => $"{def.defName} @ {baseRating}";
+    public PersonalityNode()
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
+    { }
 
     public void ModifyRating()
     {
@@ -52,7 +50,7 @@ public class PersonalityNode : IExposable
 
     public void ModifyRating(Pawn pawn)
     {
-        adjustedRating = baseRating;
+        PersonalRating.SetValue(BaseRating.Value);
 
         foreach (Trait trait in pawn.story.traits.allTraits)
         {
@@ -62,31 +60,31 @@ public class PersonalityNode : IExposable
             {
                 if (result.TryGetValue(def.defName, out float value))
                 {
-                    adjustedRating += value;
+                    PersonalRating.OffsetValue(value);
                 }
             }
         }
 
+        FinalRating.SetValue(PersonalRating.NakedValue);
+
         Ideo ideo = pawn.Ideo;
         foreach (Precept precept in ideo.PreceptsListForReading)
         {
-            Dictionary<string, float>? result = PersonalityHelper.preceptLedStore.GetValue(precept.def.defName);
+            Dictionary<string, float> result = PreceptLedStore.GetValue(precept.def.defName);
             if (result is not null)
             {
                 if (result.TryGetValue(def.defName, out float value))
                 {
                     //Log.Message($"Adjusting personality node {def.defName} based on precept {precept.def.defName}");
-                    adjustedRating += value;
+                    FinalRating.OffsetValue(value);
                 }
             }
         }
-
-        adjustedRating = Mathf.Clamp(adjustedRating, -1, 1);
     }
 
     public void ExposeData()
     {
         Scribe_Defs.Look(ref def, "def");
-        Scribe_Values.Look(ref baseRating, "baseRating");
+        Scribe_Values.Look(ref BaseRating.NakedValue, "baseRating");
     }
 }

@@ -2,6 +2,7 @@
 <Defs>
   <Personality.PersonalityNodeDef>
     <defName>Rationality</defName>
+    <label>Rationality</label>
     <highDescription>{PAWN_nameDef} is more likely to think things through than make emotional decisions. On the other hand, {PAWN_pronoun} is less in tune with {PAWN_possessive} emotions and may struggle to articulate them.</highDescription>
     <lowDescription>{PAWN_nameDef} works on vibes. {PAWN_pronoun}'s worse at things requiring logical thought, but handles {PAWN_possessive} emotions better and has a better read on people.</lowDescription>
     <highLabel>rational</highLabel>
@@ -43,9 +44,36 @@
         <beginsAt>-0.25</beginsAt>
       </li>
     </statModifiers>
+    <preceptModifiers>
+      <li>
+        <preceptDef>Research_None</preceptDef>
+        <modifier>-0.2</modifier>
+      </li>
+      <li>
+        <preceptDef>Research_ExtremelySlow</preceptDef>
+        <modifier>-0.15</modifier>
+      </li>
+      <li>
+        <preceptDef>Research_VerySlow</preceptDef>
+        <modifier>-0.1</modifier>
+      </li>
+      <li>
+        <preceptDef>Research_Slow</preceptDef>
+        <modifier>-0.05</modifier>
+      </li>
+      <li>
+        <preceptDef>Research_Fast</preceptDef>
+        <modifier>0.05</modifier>
+      </li>
+      <li>
+        <preceptDef>Research_VeryFast</preceptDef>
+        <modifier>0.1</modifier>
+      </li>
+    </preceptModifiers>
   </Personality.PersonalityNodeDef>
   <Personality.PersonalityNodeDef>
     <defName>Assertiveness</defName>
+    <label>Assertiveness</label>
     <highDescription>{PAWN_nameDef} gives voice to their needs and opinions.</highDescription>
     <lowDescription>{PAWN_nameDef} feels uncomfortable sticking up for themselves.</lowDescription>
     <highLabel>outspoken</highLabel>
@@ -63,6 +91,10 @@
         <trait>Wimp</trait>
         <modifier>-0.25</modifier>
       </li>
+      <li>
+        <trait>Abrasive</trait>
+        <modifier>0.25</modifier>
+      </li>
     </traitModifiers>
     <statModifiers>
       <li>
@@ -72,9 +104,32 @@
         <beginsAt>0.25</beginsAt>
       </li>
     </statModifiers>
+    <preceptModifiers>
+      <li>
+        <preceptDef>IdeoDiversity_Exalted</preceptDef>
+        <modifier>0.2</modifier>
+      </li>
+      <li>
+        <preceptDef>IdeoDiversity_Respected</preceptDef>
+        <modifier>0.1</modifier>
+      </li>
+      <li>
+        <preceptDef>Apostasy_Abhorrent</preceptDef>
+        <modifier>-0.15</modifier>
+      </li>
+      <li>
+        <preceptDef>Apostasy_Horrible</preceptDef>
+        <modifier>-0.1</modifier>
+      </li>
+      <li>
+        <preceptDef>Apostasy_Disapproved</preceptDef>
+        <modifier>-0.05</modifier>
+      </li>
+    </preceptModifiers>
   </Personality.PersonalityNodeDef>
   <Personality.PersonalityNodeDef>
     <defName>Compassion</defName>
+    <label>Compassion</label>
     <highDescription>{PAWN_nameDef} is in tune with the emotions of others. {PAWN_pronoun} prioritizes kindness and helping others.</highDescription>
     <lowDescription>{PAWN_nameDef}'s first priority is {PAWN_possessive} own wellbeing. {PAWN_pronoun} will not go out of their way to help someone.</lowDescription>
     <highLabel>empathetic</highLabel>
@@ -138,6 +193,74 @@
         <preceptDef>Bonding_Disapproved</preceptDef>
         <modifier>-0.07</modifier>
       </li>
+      <li>
+        <preceptDef>Charity_Worthwhile</preceptDef>
+        <modifier>0.05</modifier>
+      </li>
+      <li>
+        <preceptDef>Charity_Important</preceptDef>
+        <modifier>0.1</modifier>
+      </li>
+      <li>
+        <preceptDef>Charity_Essential</preceptDef>
+        <modifier>0.2</modifier>
+      </li>
+      <li>
+        <preceptDef>Cannibalism_Abhorrent</preceptDef>
+        <modifier>0.1</modifier>
+      </li>
+      <li>
+        <preceptDef>Cannibalism_Horrible</preceptDef>
+        <modifier>0.05</modifier>
+      </li>
+      <li>
+        <preceptDef>Cannibalism_Disapproved</preceptDef>
+        <modifier>0</modifier>
+      </li>
+      <li>
+        <preceptDef>Cannibalism_Acceptable</preceptDef>
+        <modifier>-0.05</modifier>
+      </li>
+      <li>
+        <preceptDef>Cannibalism_Preferred</preceptDef>
+        <modifier>-0.1</modifier>
+      </li>
+      <li>
+        <preceptDef>Cannibalism_RequiredStrong</preceptDef>
+        <modifier>-0.15</modifier>
+      </li>
+      <li>
+        <preceptDef>Cannibalism_RequiredRavenous</preceptDef>
+        <modifier>-0.25</modifier>
+      </li>
+      <li>
+        <preceptDef>Corpses_DontCare</preceptDef>
+        <modifier>-0.1</modifier>
+      </li>
+      <li>
+        <preceptDef>OrganUse_Acceptable</preceptDef>
+        <modifier>-0.1</modifier>
+      </li>
+      <li>
+        <preceptDef>Slavery_Abhorrent</preceptDef>
+        <modifier>0.1</modifier>
+      </li>
+      <li>
+        <preceptDef>Slavery_Horrible</preceptDef>
+        <modifier>0</modifier>
+      </li>
+      <li>
+        <preceptDef>Slavery_Disapproved</preceptDef>
+        <modifier>-0.1</modifier>
+      </li>
+      <li>
+        <preceptDef>Slavery_Acceptable</preceptDef>
+        <modifier>-0.15</modifier>
+      </li>
+      <li>
+        <preceptDef>Slavery_Honorable</preceptDef>
+        <modifier>-0.2</modifier>
+      </li>
     </preceptModifiers>
     <statModifiers>
       <li>
@@ -162,6 +285,7 @@
   </Personality.PersonalityNodeDef>
   <Personality.PersonalityNodeDef>
     <defName>Ambition</defName>
+    <label>Ambition</label>
     <highDescription>{PAWN_nameDef} has a strong internal motivation to improve {PAWN_objective}self and {PAWN_possessive} colony.</highDescription>
     <lowDescription>{PAWN_nameDef} is happy with how things are, and doesn't have much motivation to change it.</lowDescription>
     <highLabel>driven</highLabel>
@@ -217,6 +341,7 @@
   </Personality.PersonalityNodeDef>
   <Personality.PersonalityNodeDef>
     <defName>Meticulousness</defName>
+    <label>Meticulousness</label>
     <highDescription>{PAWN_nameDef} is thorough in everything they do. Unfortunately, they put a lot of stress on themselves because of this.</highDescription>
     <lowDescription>{PAWN_nameDef} cuts corners. {PAWN_possessive} work is generally a bit lower quality, but {PAWN_pronoun} doesn't get stressed out over it.</lowDescription>
     <highLabel>meticulous</highLabel>
@@ -267,6 +392,7 @@
   </Personality.PersonalityNodeDef>
   <Personality.PersonalityNodeDef MayRequire="Ludeon.RimWorld.Ideology">
     <defName>Lawfulness</defName>
+    <label>Lawfulness</label>
     <highDescription>{PAWN_nameDef} cares a lot about rules. {PAWN_pronoun} is very unlikely to break the precepts of {PAWN_possessive} ideoligion.</highDescription>
     <lowDescription>{PAWN_nameDef} does what seems right in the moment. {PAWN_pronoun} may break the precepts of {PAWN_possessive} ideoligion if it feels appropriate.</lowDescription>
     <lowLabel>chaotic</lowLabel>
@@ -299,6 +425,46 @@
       <li>
         <preceptDef>IdeoDiversity_Abhorrent</preceptDef>
         <modifier>0.25</modifier>
+      </li>
+      <li>
+        <preceptDef>Lovin_Prohibited</preceptDef>
+        <modifier>0.25</modifier>
+      </li>
+      <li>
+        <preceptDef>Lovin_Horrible</preceptDef>
+        <modifier>0.2</modifier>
+      </li>
+      <li>
+        <preceptDef>Lovin_SpouseOnly_Strict</preceptDef>
+        <modifier>0.15</modifier>
+      </li>
+      <li>
+        <preceptDef>Lovin_SpouseOnly_Moderate</preceptDef>
+        <modifier>0.1</modifier>
+      </li>
+      <li>
+        <preceptDef>Lovin_SpouseOnly_Mild</preceptDef>
+        <modifier>0.05</modifier>
+      </li>
+      <li>
+        <preceptDef>Lovin_FreeApproved</preceptDef>
+        <modifier>-0.1</modifier>
+      </li>
+      <li>
+        <preceptDef>DrugUse_Prohibited</preceptDef>
+        <modifier>0.15</modifier>
+      </li>
+      <li>
+        <preceptDef>DrugUse_MedicalOnly</preceptDef>
+        <modifier>0.05</modifier>
+      </li>
+      <li>
+        <preceptDef>DrugUse_MedicalOrSocial</preceptDef>
+        <modifier>-0.05</modifier>
+      </li>
+      <li>
+        <preceptDef>DrugUse_Essential</preceptDef>
+        <modifier>-0.15</modifier>
       </li>
     </preceptModifiers>
   </Personality.PersonalityNodeDef>

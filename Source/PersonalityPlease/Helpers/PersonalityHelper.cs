@@ -1,5 +1,4 @@
-﻿
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Verse;
 
 namespace Personality;
@@ -8,7 +7,6 @@ namespace Personality;
 public static class PersonalityHelper
 {
     public static TraitLedStore traitLedStore = new();
-    public static PreceptLedStore preceptLedStore = new();
 
     private static List<PersonalityNodeDef> PersonalityNodeDefList => DefDatabase<PersonalityNodeDef>.AllDefsListForReading;
 
@@ -27,38 +25,23 @@ public static class PersonalityHelper
             {
                 foreach (PersonalityNodePreceptModifier preceptMod in nodeDef.preceptModifiers)
                 {
-                    preceptLedStore.AppendValue(nodeDef.defName, preceptMod);
+                    PreceptLedStore.AppendValue(nodeDef.defName, preceptMod);
                 }
             }
-
         }
-
     }
 
-    public static int PawnSeed(Pawn pawn)
-    {
-        int thingID = pawn.thingIDNumber;
-        int worldID = Find.World.info.Seed;
-        return Gen.HashCombineInt(thingID, worldID);
-    }
+    public static MindComp Comp(Pawn pawn) => pawn.GetComp<MindComp>();
 
-    public static MindComp Comp(Pawn pawn)
-    {
-        return pawn.GetComp<MindComp>();
-    }
-
-    public static List<PersonalityNodeDef> GetAll
-    {
-        get => DefDatabase<PersonalityNodeDef>.AllDefsListForReading;
-    }
+    public static List<PersonalityNodeDef> GetAll => DefDatabase<PersonalityNodeDef>.AllDefsListForReading;
 
     public static string GetDescription(PersonalityNode node, Pawn pawn)
     {
-        if (node.AdjustedRating >= 0.25)
+        if (node.FinalRating.Value >= 0.25f)
         {
             return node.def.highDescription.Translate(pawn.Named("PAWN"));
         }
-        if (node.AdjustedRating <= -0.25)
+        if (node.FinalRating.Value <= -0.25f)
         {
             return node.def.lowDescription.Translate(pawn.Named("PAWN"));
         }

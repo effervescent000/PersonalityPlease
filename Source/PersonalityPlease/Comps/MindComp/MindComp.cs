@@ -5,17 +5,18 @@ namespace Personality;
 
 public class MindComp : ThingComp
 {
-    private Mind mind;
+    private MindTracker mind;
     private ModifierTracker modifierTracker;
+    private IdeoFeelingsTracker ideoFeelings;
 
-    public Mind Mind => mind;
-
+    public MindTracker Mind => mind;
     public ModifierTracker Modifiers => modifierTracker;
+    public IdeoFeelingsTracker IdeoFeelings => ideoFeelings;
 
     public override void PostExposeData()
     {
         base.PostExposeData();
-        Scribe_Deep.Look(ref mind, "psyche", new object[] { parent as Pawn });
+        Scribe_Deep.Look(ref mind, "mind", new object[] { parent as Pawn });
     }
 
     public override void PostSpawnSetup(bool respawningAfterLoad)
@@ -35,13 +36,24 @@ public class MindComp : ThingComp
                 {
                     ModifierValues modValues = new()
                     {
-                        Offset = modifier.isFactor ? 0f : modifier.GetValueAt(node.AdjustedRating),
-                        Factor = modifier.isFactor ? modifier.GetValueAt(node.AdjustedRating) : 1f
+                        Offset = modifier.isFactor ? 0f : modifier.GetValueAt(node.FinalRating.Value),
+                        Factor = modifier.isFactor ? modifier.GetValueAt(node.FinalRating.Value) : 1f
                     };
                     modifierTracker.AppendValue(modifier.StatDef.defName, modValues);
-                    //Log.Message($"Added stat value for {modifier.StatDef.defName}: {modValues.Offset} || {modValues.Factor}");
                 }
             }
         }
+        try
+        {
+            ideoFeelings = new(parent as Pawn);
+            ideoFeelings.Initialize();
+        }
+        catch { }
+    }
+
+    public void Notify_IdeoProfileSetupDone()
+    {
+        ideoFeelings = new(parent as Pawn);
+        ideoFeelings.Initialize();
     }
 }

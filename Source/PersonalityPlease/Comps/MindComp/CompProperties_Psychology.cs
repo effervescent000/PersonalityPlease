@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using HugsLib;
 using Verse;
 
 namespace Personality;
 
-internal class PersonalityPleaseModBase : ModBase
+public class CompProperties_Psychology : CompProperties
 {
-    static PersonalityPleaseModBase()
+    public CompProperties_Psychology()
     {
+        compClass = typeof(MindComp);
     }
 }

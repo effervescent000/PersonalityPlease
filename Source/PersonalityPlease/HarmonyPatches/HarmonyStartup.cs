@@ -8,6 +8,7 @@ public static class HarmonyStartup
 {
     static HarmonyStartup()
     {
+        //Harmony.DEBUG = true;
         Harmony harmonyInstance = new("effervescent.personalityplease");
         harmonyInstance.PatchAll();
     }
