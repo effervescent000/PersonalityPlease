@@ -20,7 +20,7 @@
     <DebugSymbols>false</DebugSymbols>
     <DebugType>none</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\Assemblies\</OutputPath>
+    <OutputPath>..\..\1.4\Assemblies\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -56,10 +56,10 @@
     <Compile Include="Comps\MindComp\ModifierValues.cs" />
     <Compile Include="Comps\MindComp\MindTracker.cs" />
     <Compile Include="Comps\MindComp\MindComp.cs" />
+    <Compile Include="DefOf\PersonalityDefOf.cs" />
     <Compile Include="GUI\ITab_Pawn_Mind.cs" />
     <Compile Include="GUI\MindCardUtility.cs" />
     <Compile Include="GUI\UIComponents.cs" />
-    <Compile Include="HarmonyPatches\UIPatches\DrawPawnCertainty.cs" />
     <Compile Include="HarmonyPatches\HarmonyStartup.cs" />
     <Compile Include="HarmonyPatches\IdeoTracker\Pawn_IdeoTracker.cs" />
     <Compile Include="HarmonyPatches\Interactions\Pawn_RelationsTracker.cs" />
@@ -96,8 +96,6 @@
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DefOf\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -31,6 +31,12 @@ public static class MindCardUtility
             width += COL_WIDTH * .35f;
         }
 
+        // this can't use the Settings setting b/c OnStartup hasn't initialized when this is called
+        if (ModsConfig.IsActive("effervescent.personalityplease.romance"))
+        {
+            width += 250f;
+        }
+
         // add a little extra for padding
         return new Vector2(width * 1.2f, height * 1.2f);
     }
@@ -42,6 +48,7 @@ public static class MindCardUtility
         if (mind == null) { return; }
 
         Rect mainRect = new Rect(0f, 0f, size.x, size.y).ContractedBy(10f);
+        float xStart = mainRect.x;
 
         Widgets.BeginGroup(mainRect);
 
@@ -49,6 +56,9 @@ public static class MindCardUtility
         Rect personalitySectionRect = UIComponents.DrawSection(mainRect.x, ModsConfig.IdeologyActive ? mainRect.y + CERTAINTY_HEIGHT + 10f : mainRect.y, COL_WIDTH, personalityHeight);
 
         DrawPersonality(mind, personalitySectionRect);
+
+        // update xStart
+        xStart += personalitySectionRect.width;
 
         if (ModsConfig.IdeologyActive)
         {
@@ -62,18 +72,20 @@ public static class MindCardUtility
 
             Rect ideoIconRect = new(ideoRect.center.x - certaintyRect.height * .5f, certaintyRect.y, certaintyRect.height, certaintyRect.height);
             pawn.Ideo.DrawIcon(ideoIconRect);
+            xStart = ideoRect.xMax + 20f;
         }
 
         // draw attraction
         if (Settings.RomanceModuleActive)
         {
-            DrawAttraction();
+            Rect romanceRect = new(xStart, mainRect.y, COL_WIDTH, 100f);
+            DrawRomance(romanceRect, pawn);
         }
 
         Widgets.EndGroup();
     }
 
-    public static void DrawAttraction()
+    public static void DrawRomance(Rect rect, Pawn pawn)
     {
         return;
     }
