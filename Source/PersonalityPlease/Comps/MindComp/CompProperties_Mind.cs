@@ -7,9 +7,9 @@ using Verse;
 
 namespace Personality;
 
-public class CompProperties_Psychology : CompProperties
+public class CompProperties_Mind : CompProperties
 {
-    public CompProperties_Psychology()
+    public CompProperties_Mind()
     {
         compClass = typeof(MindComp);
     }

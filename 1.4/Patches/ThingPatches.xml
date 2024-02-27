@@ -19,9 +19,7 @@
   <Operation Class="PatchOperationAdd">
     <xpath>Defs/ThingDef[defName="Human"]/comps</xpath>
     <value>
-      <li>
-        <compClass>Personality.MindComp</compClass>
-      </li>
+      <li Class="Personality.CompProperties_Mind" />
     </value>
   </Operation>
 </Patch>

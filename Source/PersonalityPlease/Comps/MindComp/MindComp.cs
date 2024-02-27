@@ -13,6 +13,11 @@ public class MindComp : ThingComp
     public ModifierTracker Modifiers => modifierTracker;
     public IdeoFeelingsTracker IdeoFeelings => ideoFeelings;
 
+    public override void Initialize(CompProperties props)
+    {
+        base.Initialize(props);
+    }
+
     public override void PostExposeData()
     {
         base.PostExposeData();
