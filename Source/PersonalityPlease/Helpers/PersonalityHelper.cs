@@ -10,7 +10,13 @@ public static class PersonalityHelper
 
     public static Dictionary<string, PersonalityNodeDef> NodeMapping = new()
     {
-        { "PP_Purity", PersonalityDefOf.PP_Purity }
+        { "PP_Purity", PersonalityDefOf.PP_Purity },
+        { "Lawfulness", PersonalityDefOf.Lawfulness },
+        { "Compassion", PersonalityDefOf.Compassion },
+        { "Meticulousness", PersonalityDefOf.Meticulousness },
+        { "Ambition", PersonalityDefOf.Ambition },
+        { "Assertiveness", PersonalityDefOf.Assertiveness },
+        { "Rationality", PersonalityDefOf.Rationality }
     };
 
     private static List<PersonalityNodeDef> PersonalityNodeDefList => DefDatabase<PersonalityNodeDef>.AllDefsListForReading;
