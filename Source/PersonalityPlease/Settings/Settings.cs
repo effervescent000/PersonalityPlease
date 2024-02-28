@@ -9,9 +9,9 @@ namespace Personality;
 
 public class Settings : ModSettings
 {
-    // set internally based on active mods
+    public SettingValues<int> MaxInteractionDistance = new(100, "PP.MaxInteractDistance.Label", "PP.MaxInteractDistance.Desc", 50, 500);
 
-    public static bool RomanceModuleActive = false;
+    // set internally based on active mods
     public static bool LovinModuleActive = false;
 
     public override void ExposeData()

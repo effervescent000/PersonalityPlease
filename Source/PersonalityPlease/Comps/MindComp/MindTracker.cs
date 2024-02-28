@@ -1,5 +1,4 @@
-﻿using Personality.Core;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using Verse;
 
@@ -52,6 +51,16 @@ public class MindTracker : IExposable
         {
             node.ModifyRating(pawn);
         }
+    }
+
+    public PersonalityNode GetNode(string key)
+    {
+        PersonalityNode node;
+        if (nodes.TryGetValue(key, out node))
+        {
+            return node;
+        }
+        return null;
     }
 
     public void ExposeData()

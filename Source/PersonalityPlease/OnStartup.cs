@@ -13,10 +13,6 @@ public static class OnStartup
 {
     static OnStartup()
     {
-        if (ModsConfig.IsActive("effervescent.personalityplease.romance"))
-        {
-            Settings.RomanceModuleActive = true;
-        }
         if (ModsConfig.IsActive("effervescent.personalityplease.lovin"))
         {
             Settings.LovinModuleActive = true;
