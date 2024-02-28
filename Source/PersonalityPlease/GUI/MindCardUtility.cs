@@ -76,11 +76,11 @@ public static class MindCardUtility
         }
 
         // draw attraction
-        if (Settings.RomanceModuleActive)
-        {
-            Rect romanceRect = new(xStart, mainRect.y, COL_WIDTH, 100f);
-            DrawRomance(romanceRect, pawn);
-        }
+        //if (Settings.RomanceModuleActive)
+        //{
+        //    Rect romanceRect = new(xStart, mainRect.y, COL_WIDTH, 100f);
+        //    DrawRomance(romanceRect, pawn);
+        //}
 
         Widgets.EndGroup();
     }

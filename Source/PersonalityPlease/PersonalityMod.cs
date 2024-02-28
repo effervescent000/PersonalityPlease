@@ -8,13 +8,13 @@ using Verse;
 
 namespace Personality;
 
-internal class PersonalityPleaseMod : Mod
+internal class PersonalityMod : Mod
 {
-    public static Settings settings;
+    public static Settings Settings;
 
-    public PersonalityPleaseMod(ModContentPack content) : base(content)
+    public PersonalityMod(ModContentPack content) : base(content)
     {
-        settings = GetSettings<Settings>();
+        Settings = GetSettings<Settings>();
     }
 
     public override string SettingsCategory()
