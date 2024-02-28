@@ -81,6 +81,9 @@
     <Compile Include="Helpers\TraitLedStore.cs" />
     <Compile Include="PersonalityPleaseMod.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Quirks\Quirk.cs" />
+    <Compile Include="Quirks\QuirkCategoryDef.cs" />
+    <Compile Include="Quirks\QuirkDef.cs" />
     <Compile Include="Settings\Settings.cs" />
   </ItemGroup>
   <ItemGroup>
