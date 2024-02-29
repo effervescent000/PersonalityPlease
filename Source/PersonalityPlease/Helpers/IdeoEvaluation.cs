@@ -20,7 +20,7 @@ public class IdeoEvaluation
         get
         {
             float total = 1f;
-            foreach (PersonalityNode node in comp.Mind.nodes.Values)
+            foreach (PersonalityNode node in comp.nodes.Values)
             {
                 float ideoValue = ideoProfile.Values[node.def.defName].Value;
                 if (ideoValue == 0f) { continue; }

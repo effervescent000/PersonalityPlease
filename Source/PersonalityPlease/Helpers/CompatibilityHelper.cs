@@ -16,7 +16,7 @@ public static class CompatibilityHelper
 
         foreach (PersonalityNodeDef def in defs)
         {
-            PersonalityComparison comparison = new(initValue: initComp.Mind.nodes[def.defName].FinalRating.Value, reciValue: reciComp.Mind.nodes[def.defName].FinalRating.Value, personalityDefName: def.defName);
+            PersonalityComparison comparison = new(initValue: initComp.nodes[def.defName].FinalRating.Value, reciValue: reciComp.nodes[def.defName].FinalRating.Value, personalityDefName: def.defName);
             comparisons.Add(comparison);
         }
 

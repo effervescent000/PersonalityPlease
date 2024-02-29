@@ -32,7 +32,7 @@ public static class MindCardUtility
         }
 
         // this can't use the Settings setting b/c OnStartup hasn't initialized when this is called
-        if (ModsConfig.IsActive("effervescent.personalityplease.romance"))
+        if (ModsConfig.IsActive("effervescent.personalityplease.lovin"))
         {
             width += 250f;
         }
@@ -75,12 +75,11 @@ public static class MindCardUtility
             xStart = ideoRect.xMax + 20f;
         }
 
-        // draw attraction
-        //if (Settings.RomanceModuleActive)
-        //{
-        //    Rect romanceRect = new(xStart, mainRect.y, COL_WIDTH, 100f);
-        //    DrawRomance(romanceRect, pawn);
-        //}
+        if (Settings.LovinModuleActive)
+        {
+            Rect romanceRect = new(xStart, mainRect.y, COL_WIDTH, 100f);
+            DrawRomance(romanceRect, pawn);
+        }
 
         Widgets.EndGroup();
     }
@@ -133,7 +132,7 @@ public static class MindCardUtility
 
     public static void DrawPersonality(MindComp mind, Rect rect)
     {
-        List<PersonalityNode> nodes = mind.Mind.nodes.Values.ToList();
+        List<PersonalityNode> nodes = mind.nodes.Values.ToList();
         for (int i = 0; i < nodes.Count; i++)
         {
             Text.Font = GameFont.Small;
