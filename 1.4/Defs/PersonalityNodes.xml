@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Defs>
-  <Personality.PersonalityNodeDef>
+  <!-- <Personality.PersonalityNodeDef>
     <defName>Rationality</defName>
     <label>Rationality</label>
     <highDescription>{PAWN_nameDef} is more likely to think things through than make emotional decisions. On the other hand, {PAWN_pronoun} is less in tune with {PAWN_possessive} emotions and may struggle to articulate them.</highDescription>
@@ -70,7 +70,7 @@
         <modifier>0.1</modifier>
       </li>
     </preceptModifiers>
-  </Personality.PersonalityNodeDef>
+  </Personality.PersonalityNodeDef> -->
   <Personality.PersonalityNodeDef>
     <defName>Assertiveness</defName>
     <label>Assertiveness</label>
