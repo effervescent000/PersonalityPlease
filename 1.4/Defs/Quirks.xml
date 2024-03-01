@@ -1,16 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Defs>
-  <!-- =========================== -->
-  <!-- CATEGORIES -->
-  <!-- =========================== -->
-
-  <Personality.QuirkCategoryDef>
-    <defName>PP_RelationshipTypePreference</defName>
-    <label>relationship type preference</label>
-    <required>True</required>
-    <!-- logic being that while a pawn can get into a relationship at 16, 
-      they don't necessarily know what they want at that age -->
-    <minAge>20</minAge>
-  </Personality.QuirkCategoryDef>
-
-</Defs>
+<Defs> </Defs>

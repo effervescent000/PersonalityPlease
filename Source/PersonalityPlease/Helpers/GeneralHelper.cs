@@ -1,4 +1,5 @@
 ﻿using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Verse;
@@ -44,5 +45,19 @@ public static class GeneralHelper
     public static void ThrowHeart(this Pawn pawn)
     {
         FleckMaker.ThrowMetaIcon(pawn.Position, pawn.Map, FleckDefOf.Heart);
+    }
+
+    public static float RollValueInRange(float upperBound = 1f, float lowerBound = -1f, Random rng = null)
+    {
+        int roll;
+        if (rng != null)
+        {
+            roll = rng.Next((int)(upperBound * 100), (int)(lowerBound * 100));
+        }
+        else
+        {
+            roll = Rand.RangeInclusive((int)(upperBound * 100), (int)(lowerBound * 100));
+        }
+        return roll / 100f;
     }
 }
