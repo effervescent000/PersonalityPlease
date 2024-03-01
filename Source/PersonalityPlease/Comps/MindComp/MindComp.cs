@@ -109,15 +109,6 @@ public class MindComp : ThingComp
         }
     }
 
-    public void InitializeQuirks(bool respawningAfterLoad)
-    {
-        quirks ??= new();
-        if (!respawningAfterLoad)
-        {
-            MakeQuirks();
-        }
-    }
-
     public PersonalityNode GetNode(string key)
     {
         if (nodes.TryGetValue(key, out PersonalityNode node))
@@ -127,9 +118,21 @@ public class MindComp : ThingComp
         return null;
     }
 
-    public Quirk GetQuirkByDef(QuirkDef def)
+    public void InitializeQuirks(bool respawningAfterLoad)
     {
-        return quirks.First(x => x.Def == def);
+        quirks ??= new();
+        if (!respawningAfterLoad)
+        {
+            MakeQuirks();
+        }
+    }
+
+    public HashSet<Quirk> Quirks => quirks;
+
+    public bool GetQuirkByDef(QuirkDef def, out Quirk quirk)
+    {
+        quirk = quirks.FirstOrFallback(x => x.Def == def);
+        return quirk != null;
     }
 
     public List<Quirk> GetQuirksByCategory(QuirkCategoryDef category)
@@ -171,6 +174,23 @@ public class MindComp : ThingComp
                 TryAddQuirk(quirk);
             }
         }
+    }
+
+    /// <summary>
+    /// attempt to get a quirk by its def, or if none is found, assign one. should only be used for
+    /// uncategorized quirkdefs.
+    /// </summary>
+    /// <param name="def"></param>
+    /// <returns></returns>
+    public Quirk GetOrGainQuirkSingular(QuirkDef def)
+    {
+        if (GetQuirkByDef(def, out Quirk quirk))
+        {
+            return quirk;
+        }
+        quirk = new(def, this);
+        TryAddQuirk(quirk);
+        return quirk;
     }
 
     public void TryAddQuirk(Quirk quirk)

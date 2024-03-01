@@ -29,8 +29,20 @@ public class Quirk : IExposable
         {
             // eventually, this will probably allow for clamping the rolled range in some way based
             // on... parameters
-            int roll = Rand.RangeInclusive(-100, 100);
-            value = roll / 100f;
+            value = GeneralHelper.RollValueInRange();
+        }
+    }
+
+    public string GetLabel
+    {
+        get
+        {
+            if (Def.binary) return Def.label.Translate();
+
+            if (value >= 0.25f) return Def.highLabel.Translate();
+            if (value <= 0.25f) return Def.lowLabel.Translate();
+
+            return null;
         }
     }
 

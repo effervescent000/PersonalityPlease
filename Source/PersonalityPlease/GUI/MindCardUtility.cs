@@ -75,6 +75,10 @@ public static class MindCardUtility
             xStart = ideoRect.xMax + 20f;
         }
 
+        Rect quirksRect = new(xStart, mainRect.y, 100f, mainRect.height * 0.5f);
+        DrawQuirks(mind, quirksRect);
+        xStart += quirksRect.width;
+
         if (Settings.LovinModuleActive)
         {
             Rect romanceRect = new(xStart, mainRect.y, COL_WIDTH, 100f);
@@ -82,6 +86,29 @@ public static class MindCardUtility
         }
 
         Widgets.EndGroup();
+    }
+
+    public static void DrawQuirks(MindComp mind, Rect quirksRect)
+    {
+        float yStart = quirksRect.y;
+        Text.Font = GameFont.Medium;
+        string header = "PP.QuirkHeader".Translate();
+        float headerHeight = Text.CalcHeight(header, quirksRect.width);
+        Rect headerRect = new(quirksRect.x, yStart, quirksRect.width, headerHeight);
+        Widgets.Label(headerRect, header);
+        yStart += headerRect.height + 5f;
+        Text.Font = GameFont.Small;
+        foreach (var quirk in mind.Quirks)
+        {
+            string label = quirk.GetLabel;
+            if (label != null)
+            {
+                var height = Text.CalcHeight(label, quirksRect.width);
+                Rect localRect = new(quirksRect.x, yStart, quirksRect.width, height);
+                Widgets.Label(localRect, label);
+                yStart += height + 3f;
+            }
+        }
     }
 
     public static void DrawRomance(Rect rect, Pawn pawn)

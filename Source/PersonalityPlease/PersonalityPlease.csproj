@@ -50,7 +50,6 @@
     <Compile Include="Comps\MindComp\IdeoFeelingsTracker.cs" />
     <Compile Include="Comps\MindComp\ModifierTracker.cs" />
     <Compile Include="Comps\MindComp\ModifierValues.cs" />
-    <Compile Include="Comps\MindComp\MindTracker.cs" />
     <Compile Include="Comps\MindComp\MindComp.cs" />
     <Compile Include="DefOf\PersonalityDefOf.cs" />
     <Compile Include="GUI\ITab_Pawn_Mind.cs" />

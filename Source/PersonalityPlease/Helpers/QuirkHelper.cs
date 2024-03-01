@@ -24,7 +24,7 @@ public static class QuirkHelper
         List<QuirkDef> quirkDefs = DefDatabase<QuirkDef>.AllDefsListForReading;
         foreach (QuirkDef quirk in quirkDefs)
         {
-            if (quirk.categories.Count > 0)
+            if (quirk.categories?.Count > 0)
             {
                 foreach (QuirkCategoryDef category in quirk.categories)
                 {
