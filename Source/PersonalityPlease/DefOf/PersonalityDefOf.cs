@@ -11,7 +11,6 @@ public static class PersonalityDefOf
     public static PersonalityNodeDef Lawfulness;
     public static PersonalityNodeDef Meticulousness;
     public static PersonalityNodeDef PP_Purity;
-    public static PersonalityNodeDef Rationality;
 
     static PersonalityDefOf()
     {
