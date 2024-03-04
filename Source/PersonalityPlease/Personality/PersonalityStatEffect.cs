@@ -1,13 +1,11 @@
-﻿
-using RimWorld;
+﻿using RimWorld;
 using System;
 using Verse;
 
 namespace Personality;
 
-public class PersonalityStatModifier
+public class PersonalityStatEffect
 {
-
     private readonly float value;
     public bool isFactor = false;
     private readonly StatDef statDef;
@@ -17,13 +15,14 @@ public class PersonalityStatModifier
     public float Value => value;
     public StatDef StatDef => statDef;
     public float BeginsAt => beginsAt;
+
     public float MaxValueAt
     {
         get
         {
             if (maxValueAt != null)
             {
-                return (float)maxValueAt ;
+                return (float)maxValueAt;
             }
             if (beginsAt > 0f) { return 1f; }
             if (beginsAt < 0f) { return -1f; }
@@ -40,6 +39,5 @@ public class PersonalityStatModifier
             new CurvePoint(-MaxValueAt, isFactor ? 1f : 0f)
         };
         return curve.Evaluate(targetValue);
-        
     }
 }
