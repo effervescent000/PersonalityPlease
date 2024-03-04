@@ -60,4 +60,10 @@ public static class GeneralHelper
         }
         return roll / 100f;
     }
+
+    public static bool Equals(this Pawn pawn, Pawn otherPawn)
+    {
+        if (pawn == null || otherPawn == null) return false;
+        return pawn.ThingID == otherPawn.ThingID;
+    }
 }

@@ -7,5 +7,11 @@
     <lowLabel>debauched</lowLabel>
     <highDescription>{PAWN_nameDef} isn't necessarily virginal, but {PAWN_pronoun} tends to be reserved when it comes to lovin'. {PAWN_pronoun} is less likely to do lovin' casually or to stray from {PAWN_possessive} partner.</highDescription>
     <lowDescription>{PAWN_nameDef} will try anything once. {PAWN_pronoun} has a hard time resisting lovin' opportunities.</lowDescription>
+    <geneModifiers>
+      <li>
+        <Def>PP_LoveFeeder</Def>
+        <modifier>-5</modifier>
+      </li>
+    </geneModifiers>
   </Personality.PersonalityNodeDef>
 </Defs>
