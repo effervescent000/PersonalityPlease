@@ -11,7 +11,7 @@ public class MindComp : ThingComp
     private IdeoFeelingsTracker ideoFeelings;
 
     public Dictionary<string, PersonalityNode> nodes;
-    private HashSet<Quirk> quirks;
+    private List<Quirk> quirks;
 
     private Pawn Pawn => (Pawn)parent;
 
@@ -127,18 +127,18 @@ public class MindComp : ThingComp
         }
     }
 
-    public HashSet<Quirk> Quirks => quirks;
+    public List<Quirk> Quirks => quirks;
 
     public bool GetQuirkByDef(QuirkDef def, out Quirk quirk)
     {
-        quirk = quirks.FirstOrFallback(x => x.Def == def);
+        quirk = quirks.FirstOrFallback(x => x.Def.defName == def.defName);
         return quirk != null;
     }
 
     public List<Quirk> GetQuirksByCategory(QuirkCategoryDef category)
     {
         return (from quirk in quirks
-                where quirk.Def.categories?.Count > 0 && quirk.Def.categories.Any(cat => cat.defName == category.defName)
+                where quirk.Def.category != null && quirk.Def.category.defName == category.defName
                 select quirk).ToList();
     }
 
@@ -154,7 +154,7 @@ public class MindComp : ThingComp
             if (value.Count > 0)
             {
                 QuirkDef selection = value.RandomElement();
-                Quirk quirk = new(selection, this);
+                Quirk quirk = new(selection);
                 return quirk;
             }
         }
@@ -186,7 +186,7 @@ public class MindComp : ThingComp
         {
             return quirk;
         }
-        quirk = new(def, this);
+        quirk = new(def);
         TryAddQuirk(quirk);
         return quirk;
     }
@@ -194,12 +194,11 @@ public class MindComp : ThingComp
     public void TryAddQuirk(Quirk quirk)
     {
         List<Quirk> query = (from x in quirks
-                             where x.Def == quirk.Def
+                             where x.Def.defName == quirk.Def.defName
                              select x).ToList();
         if (query.Count == 0)
         {
             quirks.Add(quirk);
-            Log.Message($"Added quirk ${quirk.Def.defName}");
         }
     }
 }

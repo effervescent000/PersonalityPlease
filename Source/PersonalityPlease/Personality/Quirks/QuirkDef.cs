@@ -1,12 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using RimWorld;
+using System.Collections.Generic;
 using Verse;
 
 namespace Personality;
 
 public class QuirkDef : Def
 {
-    public List<QuirkCategoryDef> categories;
-    public bool binary = false;
-    public string highLabel;
-    public string lowLabel;
+    public QuirkCategoryDef category;
+    public List<StatModifier> statFactors;
+    public List<StatModifier> statOffsets;
+    public bool hidden = false;
 }
