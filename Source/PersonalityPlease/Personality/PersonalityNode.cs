@@ -1,6 +1,4 @@
-﻿#nullable enable
-
-using RimWorld;
+﻿using RimWorld;
 using System.Collections.Generic;
 using Verse;
 
@@ -23,7 +21,7 @@ public class PersonalityNode : IExposable
     public PersonalityNode(PersonalityNodeDef def, float baseRating, Pawn pawn)
     {
         this.def = def;
-        this.BaseRating.SetValue(baseRating);
+        BaseRating.SetValue(baseRating);
         this.pawn = pawn;
     }
 
@@ -35,10 +33,8 @@ public class PersonalityNode : IExposable
 
     public override string ToString() => $"{def.defName} @ {BaseRating}";
 
-#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
-
     public PersonalityNode()
-#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
+
     { }
 
     public void ModifyRating()
@@ -53,12 +49,23 @@ public class PersonalityNode : IExposable
         foreach (Trait trait in pawn.story.traits.allTraits)
         {
             Pair<string, int> traitPair = new(trait.def.defName, trait.Degree);
-            Dictionary<string, float>? result = PersonalityHelper.traitLedStore.GetValue(traitPair);
+            Dictionary<string, float> result = PersonalityHelper.traitLedStore.GetValue(traitPair);
             if (result is not null)
             {
                 if (result.TryGetValue(def.defName, out float value))
                 {
                     PersonalRating.OffsetValue(value);
+                }
+            }
+        }
+
+        if (def.geneModifiers?.Count > 0)
+        {
+            foreach (PersonalityNodeModifier<GeneDef> geneModifier in def.geneModifiers)
+            {
+                if (pawn.genes.HasGene(geneModifier.Def))
+                {
+                    PersonalRating.OffsetValue(geneModifier.modifier);
                 }
             }
         }

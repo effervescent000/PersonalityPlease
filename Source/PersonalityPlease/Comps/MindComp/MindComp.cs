@@ -38,10 +38,10 @@ public class MindComp : ThingComp
 
         foreach (PersonalityNode node in nodes.Values)
         {
-            List<PersonalityStatModifier> statMods = node.def.statModifiers;
+            List<PersonalityStatEffect> statMods = node.def.statModifiers;
             if (!statMods.NullOrEmpty())
             {
-                foreach (PersonalityStatModifier modifier in statMods)
+                foreach (PersonalityStatEffect modifier in statMods)
                 {
                     ModifierValues modValues = new()
                     {
@@ -138,15 +138,13 @@ public class MindComp : ThingComp
     public List<Quirk> GetQuirksByCategory(QuirkCategoryDef category)
     {
         return (from quirk in quirks
-                where quirk.Def.categories.Contains(category)
+                where quirk.Def.categories?.Count > 0 && quirk.Def.categories.Any(cat => cat.defName == category.defName)
                 select quirk).ToList();
     }
 
     public Quirk GetFirstQuirkInCategory(QuirkCategoryDef category)
     {
-        return (from quirk in quirks
-                where quirk.Def.categories.Contains(category)
-                select quirk).First();
+        return GetQuirksByCategory(category)?.First();
     }
 
     public Quirk TryGenerateQuirkForCategory(QuirkCategoryDef category)
