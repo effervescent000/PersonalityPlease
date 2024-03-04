@@ -11,6 +11,8 @@ namespace Personality
         public string lowLabel;
         public List<PersonalityNodeTraitModifier> traitModifiers;
         public List<PersonalityNodePreceptModifier> preceptModifiers;
-        public List<PersonalityStatModifier> statModifiers;
+        public List<PersonalityNodeModifier<GeneDef>> geneModifiers;
+
+        public List<PersonalityStatEffect> statModifiers;
     }
 }
