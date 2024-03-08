@@ -50,6 +50,7 @@
     <Compile Include="Comps\MindComp\ModifierTracker.cs" />
     <Compile Include="Comps\MindComp\ModifierValues.cs" />
     <Compile Include="Comps\MindComp\MindComp.cs" />
+    <Compile Include="Comps\PreceptComp_SelfTookMemoryThoughtWithSubject.cs" />
     <Compile Include="DefOf\PersonalityDefOf.cs" />
     <Compile Include="GUI\ITab_Pawn_Mind.cs" />
     <Compile Include="GUI\MindCardUtility.cs" />

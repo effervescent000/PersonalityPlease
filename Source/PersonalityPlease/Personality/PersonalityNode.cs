@@ -80,7 +80,6 @@ public class PersonalityNode : IExposable
             {
                 if (result.TryGetValue(def.defName, out float value))
                 {
-                    //Log.Message($"Adjusting personality node {def.defName} based on precept {precept.def.defName}");
                     FinalRating.OffsetValue(value);
                 }
             }
