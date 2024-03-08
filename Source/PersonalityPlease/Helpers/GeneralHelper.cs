@@ -61,9 +61,13 @@ public static class GeneralHelper
         return roll / 100f;
     }
 
-    public static bool Equals(this Pawn pawn, Pawn otherPawn)
+    public static bool CanHaveThoughts(this Pawn pawn)
     {
-        if (pawn == null || otherPawn == null) return false;
-        return pawn.ThingID == otherPawn.ThingID;
+        return pawn.needs?.mood != null;
+    }
+
+    public static void TryGiveThought(this Pawn pawn, Thought_Memory thought)
+    {
+        pawn.needs.mood.thoughts.memories.TryGainMemory(thought);
     }
 }

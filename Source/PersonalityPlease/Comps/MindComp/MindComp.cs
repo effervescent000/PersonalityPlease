@@ -109,6 +109,11 @@ public class MindComp : ThingComp
         }
     }
 
+    public PersonalityNode GetNode(PersonalityNodeDef def)
+    {
+        return GetNode(def.defName);
+    }
+
     public PersonalityNode GetNode(string key)
     {
         if (nodes.TryGetValue(key, out PersonalityNode node))
