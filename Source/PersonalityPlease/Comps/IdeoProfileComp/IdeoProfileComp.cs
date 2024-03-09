@@ -25,7 +25,7 @@ public class IdeoProfileComp : GameComponent
             profiles.Add(profile);
         }
         List<Pawn> pawnsToNotify = (from p in Find.AnyPlayerHomeMap.mapPawns.AllPawnsSpawned
-                                    where p.def.defName == "Human"
+                                    where p.def.defName == "Human" && p.ageTracker.AgeBiologicalYears >= 3
                                     select p).ToList();
 
         foreach (var p in pawnsToNotify)

@@ -73,14 +73,17 @@ public class PersonalityNode : IExposable
         FinalRating.SetValue(PersonalRating.NakedValue);
 
         Ideo ideo = pawn.Ideo;
-        foreach (Precept precept in ideo.PreceptsListForReading)
+        if (ideo != null)
         {
-            Dictionary<string, float> result = PreceptLedStore.GetValue(precept.def.defName);
-            if (result is not null)
+            foreach (Precept precept in ideo.PreceptsListForReading)
             {
-                if (result.TryGetValue(def.defName, out float value))
+                Dictionary<string, float> result = PreceptLedStore.GetValue(precept.def.defName);
+                if (result is not null)
                 {
-                    FinalRating.OffsetValue(value);
+                    if (result.TryGetValue(def.defName, out float value))
+                    {
+                        FinalRating.OffsetValue(value);
+                    }
                 }
             }
         }

@@ -12,19 +12,15 @@ namespace Personality.HarmonyPatches;
 [HarmonyPatch(typeof(Pawn_IdeoTracker), nameof(Pawn_IdeoTracker.IdeoTrackerTick))]
 public class Pawn_IdeoTracker_CertaintyPerDayPatch
 {
-    private static readonly AccessTools.FieldRef<object, Pawn> pawnRef = AccessTools.FieldRefAccess<Pawn>(typeof(Pawn_IdeoTracker), "pawn");
-    private static readonly AccessTools.FieldRef<object, float> certaintyRef = AccessTools.FieldRefAccess<float>(typeof(Pawn_IdeoTracker), "certaintyInt");
-
     [HarmonyPrefix]
-    public static bool PatchIdeoTrackerTick(Pawn_IdeoTracker __instance)
+    public static bool PatchIdeoTrackerTick(Pawn ___pawn, ref float ___certaintyInt)
     {
-        ref Pawn pawn = ref pawnRef.Invoke(__instance);
-        MindComp comp = pawn.GetComp<MindComp>();
+        MindComp comp = ___pawn.GetComp<MindComp>();
         float? newCertainty = comp?.IdeoFeelings?.Tick();
         if (newCertainty != null)
         {
-            ref float certainty = ref certaintyRef.Invoke(__instance);
-            certainty = (float)newCertainty;
+            ___certaintyInt = (float)newCertainty;
+            return false;
         }
         return true;
     }

@@ -14,7 +14,7 @@ public class IdeoFeelingsTracker
     private readonly Pawn pawn;
     private float naturalCertainty = 1f;
 
-    private static readonly SimpleCurve certaintyChangeByDistanceFromGoodwill = new()
+    private static readonly SimpleCurve certaintyChangeByDistanceFromNatural = new()
     {
         new CurvePoint(-.6f, .03f), new CurvePoint(.6f, -.03f)
     };
@@ -48,7 +48,7 @@ public class IdeoFeelingsTracker
     {
         get
         {
-            return certaintyChangeByDistanceFromGoodwill.Evaluate(pawn.ideo.Certainty - NaturalCertainty) + (ConversionTuning.CertaintyPerDayByMoodCurve.Evaluate(pawn.needs.mood.CurLevelPercentage) * 0.75f);
+            return certaintyChangeByDistanceFromNatural.Evaluate(pawn.ideo.Certainty - NaturalCertainty) + (ConversionTuning.CertaintyPerDayByMoodCurve.Evaluate(pawn.needs.mood.CurLevelPercentage) * 0.25f);
         }
     }
 
