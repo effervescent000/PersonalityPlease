@@ -32,7 +32,7 @@ public class MindComp : ThingComp
         InitializePersonalityNodes();
         ApplyAdjustments();
 
-        InitializeQuirks(respawningAfterLoad);
+        InitializeQuirks();
 
         modifierTracker = new ModifierTracker();
 
@@ -123,10 +123,10 @@ public class MindComp : ThingComp
         return null;
     }
 
-    public void InitializeQuirks(bool respawningAfterLoad)
+    public void InitializeQuirks()
     {
         quirks ??= new();
-        if (!respawningAfterLoad)
+        if (quirks.Count == 0)
         {
             MakeQuirks();
         }
